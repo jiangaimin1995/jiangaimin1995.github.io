@@ -17,10 +17,18 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <tags>
+        <tag>R语言</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>article title</title>
     <url>/2024/02/16/article-title/</url>
     <content><![CDATA[]]></content>
+      <tags>
+        <tag>R语言</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
 </search>
