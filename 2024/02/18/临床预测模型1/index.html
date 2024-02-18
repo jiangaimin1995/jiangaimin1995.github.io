@@ -1,9 +1,287 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>临床预测模型|1.预测模型的应用有哪些？</title>
-    <url>/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/</url>
-    <content><![CDATA[<p>在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。<br>在这次的内容中，我们将系统了解预测模型在医疗领域中的应用。<br>预计阅读时间：26分钟。</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。在这次的内容中，我们将系统了解预测模型在医疗领">
+<meta property="og:type" content="article">
+<meta property="og:title" content="临床预测模型|1.预测模型的应用有哪些？">
+<meta property="og:url" content="http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/index.html">
+<meta property="og:site_name" content="劝人学医TDLP的博客">
+<meta property="og:description" content="在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。在这次的内容中，我们将系统了解预测模型在医疗领">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-07e06999d4c2b840d7b9bc768b25a7ff_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-17daf9e226abdd9f93c10a03ded99bc2_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-29cb85cea9e56e798e715c6727c19484_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-371c2f58bc005a183670b7748c276262_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-5468faa39308624ee5d5a6f49920f908_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-a97d74e116eed3b930720c639729b8c1_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-c24a579cf10fa730b7ebf9abe3098a8d_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-70f1b4a17486bb7cb2ec77edb0c8b03e_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-72db249a5faddfb404cb97e4b72dcfec_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-5094ad9999640332183a56f1d09b3a5e_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-53465a85261ac786bb44864d4aab9209_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-e212cb128dd98372910e0bce44d3be04_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-3f6d5c1c7b4338ec9bd95a7938cdaf2f_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-79663837385415dc5412e707d766a8a6_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-0506e83b4fc5578edae25d2653020861_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-c8819c11d119c40088428f0089960c44_1440w.webp">
+<meta property="article:published_time" content="2024-02-18T08:26:53.535Z">
+<meta property="article:modified_time" content="2024-02-18T09:42:03.726Z">
+<meta property="article:author" content="蒋不言">
+<meta property="article:tag" content="临床预测模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-07e06999d4c2b840d7b9bc768b25a7ff_1440w.webp">
+
+
+<link rel="canonical" href="http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/","path":"2024/02/18/临床预测模型1/","title":"临床预测模型|1.预测模型的应用有哪些？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>临床预测模型|1.预测模型的应用有哪些？ | 劝人学医TDLP的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="劝人学医TDLP的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">劝人学医TDLP的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The Data Literary Project</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BB%E7%96%97%E5%AE%9E%E8%B7%B5%E4%B8%8E%E7%A0%94%E7%A9%B6"><span class="nav-number">1.</span> <span class="nav-text">医疗实践与研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E5%9C%A8%E5%85%AC%E5%85%B1%E5%8D%AB%E7%94%9F%E9%A2%86%E5%9F%9F%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">预测模型在公共卫生领域中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E9%A2%84%E9%98%B2%E6%80%A7%E5%B9%B2%E9%A2%84%E6%8E%AA%E6%96%BD%E7%9A%84%E9%92%88%E5%AF%B9%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">增加预防性干预措施的针对性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%B9%B3%E8%85%BA%E7%99%8C%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">示例：乳腺癌预测模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E5%9C%A8%E4%B8%B4%E5%BA%8A%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">预测模型在临床实践中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BB%E7%96%97%E5%86%B3%E7%AD%96%E6%94%AF%E6%8C%81"><span class="nav-number">3.1.</span> <span class="nav-text">医疗决策支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%82%BE%E5%8A%A8%E8%84%89%E7%8B%AD%E7%AA%84%E7%9A%84%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">示例：肾动脉狭窄的预测模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E5%B9%B2%E9%A2%84%E9%98%88%E5%80%BC"><span class="nav-number">3.3.</span> <span class="nav-text">确定干预阈值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%B7%B1%E9%9D%99%E8%84%89%E8%A1%80%E6%A0%93"><span class="nav-number">3.4.</span> <span class="nav-text">预测深静脉血栓</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%B2%BB%E7%96%97%E5%BC%BA%E5%BA%A6"><span class="nav-number">3.5.</span> <span class="nav-text">评估治疗强度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%99%8C%E7%97%87%E9%A2%84%E5%90%8E%E4%B8%8D%E8%89%AF%E7%9A%84%E4%BA%9A%E7%BB%84"><span class="nav-number">3.6.</span> <span class="nav-text">示例：定义一个癌症预后不良的亚组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%BB%E7%96%97%E7%9A%84%E6%88%90%E6%9C%AC%E6%95%88%E7%9B%8A"><span class="nav-number">3.7.</span> <span class="nav-text">治疗的成本效益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%B6%E8%BF%9F%E6%B2%BB%E7%96%97"><span class="nav-number">3.8.</span> <span class="nav-text">延迟治疗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%87%AA%E7%84%B6%E6%80%80%E5%AD%95%E7%9A%84%E6%9C%BA%E4%BC%9A"><span class="nav-number">3.9.</span> <span class="nav-text">示例：自然怀孕的机会</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E6%9C%AF%E5%86%B3%E7%AD%96"><span class="nav-number">3.10.</span> <span class="nav-text">手术决策</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%9C%89%E9%A3%8E%E9%99%A9%E7%9A%84%E5%BF%83%E8%84%8F%E7%93%A3%E8%86%9C%E7%BD%AE%E6%8D%A2%E7%9A%84%E6%89%8B%E6%9C%AF%E5%86%B3%E7%AD%96%E9%97%AE%E9%A2%98"><span class="nav-number">3.11.</span> <span class="nav-text">示例：有风险的心脏瓣膜置换的手术决策问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E5%9C%A8%E5%8C%BB%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">预测模型在医学研究中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%AF%B9%E7%85%A7%E8%AF%95%E9%AA%8C%E4%B8%AD%E7%9A%84%E7%BA%B3%E5%85%A5%E5%92%8C%E5%88%86%E5%B1%82"><span class="nav-number">4.1.</span> <span class="nav-text">随机对照试验中的纳入和分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%88%9B%E4%BC%A4%E6%80%A7%E8%84%91%E6%8D%9F%E4%BC%A4%E7%9A%84%E7%97%85%E4%BE%8B%E9%80%89%E6%8B%A9"><span class="nav-number">4.2.</span> <span class="nav-text">示例：创伤性脑损伤的病例选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RCT%E4%B8%AD%E7%9A%84%E5%8D%8F%E5%8F%98%E9%87%8F%E8%B0%83%E6%95%B4"><span class="nav-number">4.3.</span> <span class="nav-text">RCT中的协变量调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%8D%8F%E5%8F%98%E9%87%8F%E8%B0%83%E6%95%B4%E6%9D%A5%E5%A2%9E%E5%8A%A0%E6%95%88%E8%83%BD"><span class="nav-number">4.4.</span> <span class="nav-text">通过协变量调整来增加效能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9AGUSTO-III-%E8%AF%95%E9%AA%8C%E5%88%86%E6%9E%90"><span class="nav-number">4.5.</span> <span class="nav-text">示例：GUSTO-III 试验分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E6%80%A7%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.6.</span> <span class="nav-text">观察性研究中的预测模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%BE%E5%90%91%E6%80%A7%E8%AF%84%E5%88%86"><span class="nav-number">4.7.</span> <span class="nav-text">倾向性评分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BB%96%E6%B1%80%E7%B1%BB%E8%8D%AF%E7%89%A9%E6%B2%BB%E7%96%97%E6%95%88%E6%9E%9C"><span class="nav-number">4.8.</span> <span class="nav-text">示例：他汀类药物治疗效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">4.9.</span> <span class="nav-text">不同数据来源的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="蒋不言"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">蒋不言</p>
+  <div class="site-description" itemprop="description">西安交通大学 | 肿瘤学 | 博士</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="/Roger%E4%B8%8D%E8%A8%80:2251376849@qq.com" title="E-Mail → Roger不言:2251376849@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%EF%BC%9A%E5%8A%9D%E4%BA%BA%E5%AD%A6%E5%8C%BBTDLP" title="WeChat → 微信公众号：劝人学医TDLP" rel="noopener me"><i class="fab fa-weibo fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="蒋不言">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劝人学医TDLP的博客">
+      <meta itemprop="description" content="西安交通大学 | 肿瘤学 | 博士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="临床预测模型|1.预测模型的应用有哪些？ | 劝人学医TDLP的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          临床预测模型|1.预测模型的应用有哪些？<a href="https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/_posts/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-18 16:26:53 / 修改时间：17:42:03" itemprop="dateCreated datePublished" datetime="2024-02-18T16:26:53+08:00">2024-02-18</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。<br>在这次的内容中，我们将系统了解预测模型在医疗领域中的应用。<br>预计阅读时间：26分钟。</p>
 <hr>
 <h2 id="医疗实践与研究"><a href="#医疗实践与研究" class="headerlink" title="医疗实践与研究"></a>医疗实践与研究</h2><p>在公共卫生领域，预测模型可能有助于针对患病或患病风险相对较高的受试者进行预防性干预。在临床实践中，预测模型可以告知患者及其治疗医生诊断的概率或预后结果。在诊断性检查中，预测可能有助于估计一种疾病存在的概率。在研究中，预测模型可能有助于设计干预研究。在随机试验的分析中，调整基线风险。在观察性的研究中，预测模型也有助于控制混杂变量。</p>
 <span id="more"></span>
@@ -54,9 +332,250 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总之，预测模型的潜在应用领域，包括公共卫生（预防干预的目标）、临床实践（诊断检查、治疗决策、共同决策）和医疗研究（随机对照试验的设计和分析） ，观察性研究中的混杂因素调整）。从模型中获取预测必须与深入了解疾病机制和病理生理过程分开。 </p>
 <hr>
 <p>供稿：圆圆<br>编排：Roger不言</p>
-]]></content>
-      <tags>
-        <tag>临床预测模型</tag>
-      </tags>
-  </entry>
-</search>
+
+    </div>
+
+    
+    
+    
+
+   <div>
+     <div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+      <i class="fa fa-paw"></i>
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+   </div>
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/zhifubao.jpg" alt="蒋不言 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>蒋不言
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/" title="临床预测模型|1.预测模型的应用有哪些？">http://example.com/2024/02/18/临床预测模型1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/" rel="tag"># 临床预测模型</a>
+          </div>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_email"></a>
+      <a class="a2a_button_qzone"></a>
+      <a class="a2a_button_douban"></a>
+      <a class="a2a_button_evernote"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">蒋不言</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">10k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">17 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("02/16/2024 10:00:00"); 
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/wavedrom.min.js","integrity":"sha256-psuqlelzklLSAoqBmPNNdyJw8msJdKgKpUFJZQlJJjo="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+
+
+  <script src="/js/third-party/addtoany.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 65,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 65,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>

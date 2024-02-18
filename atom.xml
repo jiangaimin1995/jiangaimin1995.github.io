@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-17T14:52:35.704Z</updated>
+  <updated>2024-02-18T09:42:03.726Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,41 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>article title</title>
-    <link href="http://example.com/2024/02/16/article-title/"/>
-    <id>http://example.com/2024/02/16/article-title/</id>
-    <published>2024-02-16T06:57:10.000Z</published>
-    <updated>2024-02-17T14:52:35.704Z</updated>
+    <title>临床预测模型|1.预测模型的应用有哪些？</title>
+    <link href="http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/"/>
+    <id>http://example.com/2024/02/18/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B1/</id>
+    <published>2024-02-18T08:26:53.535Z</published>
+    <updated>2024-02-18T09:42:03.726Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。&lt;br&gt;在这次的内容中，我们将系统了解预测模型在医疗领域中的应用。&lt;br&gt;预计阅读时间：26分钟。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;医疗实践与研究&quot;&gt;&lt;a href=&quot;#医疗实践与研究&quot; class=&quot;headerlink&quot; title=&quot;医疗实践与研究&quot;&gt;&lt;/a&gt;医疗实践与研究&lt;/h2&gt;&lt;p&gt;在公共卫生领域，预测模型可能有助于针对患病或患病风险相对较高的受试者进行预防性干预。在临床实践中，预测模型可以告知患者及其治疗医生诊断的概率或预后结果。在诊断性检查中，预测可能有助于估计一种疾病存在的概率。在研究中，预测模型可能有助于设计干预研究。在随机试验的分析中，调整基线风险。在观察性的研究中，预测模型也有助于控制混杂变量。&lt;/p&gt;</summary>
     
     
     
     
-    
-    <category term="R语言" scheme="http://example.com/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2024/02/16/hello-world/"/>
-    <id>http://example.com/2024/02/16/hello-world/</id>
-    <published>2024-02-16T05:26:26.693Z</published>
-    <updated>2024-02-17T14:52:54.793Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-    <category term="R语言" scheme="http://example.com/tags/R%E8%AF%AD%E8%A8%80/"/>
-    
-    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    <category term="临床预测模型" scheme="http://example.com/tags/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
