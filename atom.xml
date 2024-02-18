@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-18T09:42:03.726Z</updated>
+  <updated>2024-02-18T14:12:00.763Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）</title>
+    <link href="http://example.com/2024/02/18/R-pyramid/"/>
+    <id>http://example.com/2024/02/18/R-pyramid/</id>
+    <published>2024-02-18T14:02:35.000Z</published>
+    <updated>2024-02-18T14:12:00.763Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对于临床研究而言，疗效和安全性是大家最关心的问题。那么，如何在一个临床研究中将读者们最关心的问题有效的展示出来至关重要。这期我们选择临床研究中的不良事件（AE）。通常来讲，在绝大多数文章中作者一般会使用表格来呈现不同干预组参与者不同AE的构成比。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="R" scheme="http://example.com/tags/R/"/>
+    
+    <category term="ggplot2" scheme="http://example.com/tags/ggplot2/"/>
+    
+  </entry>
   
   <entry>
     <title>临床预测模型|1.预测模型的应用有哪些？</title>
