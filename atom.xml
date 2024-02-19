@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-18T14:12:00.763Z</updated>
+  <updated>2024-02-19T09:42:22.799Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>临床预测模型|2.预测模型的研究设计相关问题（一）</title>
+    <link href="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/"/>
+    <id>http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/</id>
+    <published>2024-02-19T09:32:48.000Z</published>
+    <updated>2024-02-19T09:42:22.799Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。&lt;/p&gt;
+&lt;p&gt;在这次的内容中，我们将系统了解预测模型的研究设计相关问题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在本章中，我们主要学习预测研究设计中的几个问题，包括选择队列研究所需要的受试者或患者以及来自单一中心、来自注册登记或随机对照试验的病例的优势和局限性；预测模型中选择预测因子和结局变量的问题；此外，还有一个重要的问题是研究需要多大规模（样本量）才能支撑足够的统计学检验效能。&lt;/p&gt;
+&lt;h2 id=&quot;预后研究&quot;&gt;&lt;a href=&quot;#预后研究&quot; class=&quot;headerlink&quot; title=&quot;预后研究&quot;&gt;&lt;/a&gt;&lt;strong&gt;预后研究&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;预后研究本质上是纵向研究，最常在患者队列中进行，随着时间的推移对患者进行随访以观察结局（或“事件”或“终点”）的发生。这个队列的定义是基于一个或多个特定的特征，比如患有某种疾病、居住在特定地方、年龄在一定范围内，或者仅仅是活产。几种队列研究类型可以用于预后模型的开发，最常见的可能是单中心回顾性队列研究。例如，识别医院病历记录中特定日期范围之间的患者，并对这些患者的病历资料向前追溯。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="临床预测模型" scheme="http://example.com/tags/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）</title>

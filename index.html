@@ -88,7 +88,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -187,6 +187,104 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="蒋不言">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劝人学医TDLP的博客">
+      <meta itemprop="description" content="西安交通大学 | 肿瘤学 | 博士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 劝人学医TDLP的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/" class="post-title-link" itemprop="url">临床预测模型|2.预测模型的研究设计相关问题（一）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-19 17:32:48 / 修改时间：17:42:22" itemprop="dateCreated datePublished" datetime="2024-02-19T17:32:48+08:00">2024-02-19</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。</p>
+<p>在这次的内容中，我们将系统了解预测模型的研究设计相关问题。</p>
+<hr>
+<p>在本章中，我们主要学习预测研究设计中的几个问题，包括选择队列研究所需要的受试者或患者以及来自单一中心、来自注册登记或随机对照试验的病例的优势和局限性；预测模型中选择预测因子和结局变量的问题；此外，还有一个重要的问题是研究需要多大规模（样本量）才能支撑足够的统计学检验效能。</p>
+<h2 id="预后研究"><a href="#预后研究" class="headerlink" title="预后研究"></a><strong>预后研究</strong></h2><p>预后研究本质上是纵向研究，最常在患者队列中进行，随着时间的推移对患者进行随访以观察结局（或“事件”或“终点”）的发生。这个队列的定义是基于一个或多个特定的特征，比如患有某种疾病、居住在特定地方、年龄在一定范围内，或者仅仅是活产。几种队列研究类型可以用于预后模型的开发，最常见的可能是单中心回顾性队列研究。例如，识别医院病历记录中特定日期范围之间的患者，并对这些患者的病历资料向前追溯。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
     
 
@@ -398,13 +496,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">13k</span>
+    <span title="站点总字数">17k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">30 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
