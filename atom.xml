@@ -6,7 +6,7 @@
   <link href="http://tdlpblog.cn/atom.xml" rel="self"/>
   
   <link href="http://tdlpblog.cn/"/>
-  <updated>2024-02-20T13:23:25.115Z</updated>
+  <updated>2024-02-21T05:30:16.303Z</updated>
   <id>http://tdlpblog.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://tdlpblog.cn/year/021961239.html"/>
     <id>http://tdlpblog.cn/year/021961239.html</id>
     <published>2024-02-19T09:32:48.000Z</published>
-    <updated>2024-02-20T13:23:25.115Z</updated>
+    <updated>2024-02-21T05:30:16.303Z</updated>
     
     
     <summary type="html">&lt;p&gt;在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。&lt;/p&gt;
@@ -42,7 +42,7 @@
     <link href="http://tdlpblog.cn/year/021842331.html"/>
     <id>http://tdlpblog.cn/year/021842331.html</id>
     <published>2024-02-18T14:02:35.000Z</published>
-    <updated>2024-02-18T14:12:00.763Z</updated>
+    <updated>2024-02-21T05:30:16.302Z</updated>
     
     
     <summary type="html">&lt;p&gt;对于临床研究而言，疗效和安全性是大家最关心的问题。那么，如何在一个临床研究中将读者们最关心的问题有效的展示出来至关重要。这期我们选择临床研究中的不良事件（AE）。通常来讲，在绝大多数文章中作者一般会使用表格来呈现不同干预组参与者不同AE的构成比。&lt;/p&gt;</summary>
@@ -61,7 +61,7 @@
     <link href="http://tdlpblog.cn/year/02181194.html"/>
     <id>http://tdlpblog.cn/year/02181194.html</id>
     <published>2024-02-18T08:26:53.535Z</published>
-    <updated>2024-02-18T09:42:03.726Z</updated>
+    <updated>2024-02-21T05:30:16.304Z</updated>
     
     
     <summary type="html">&lt;p&gt;在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。&lt;br&gt;在这次的内容中，我们将系统了解预测模型在医疗领域中的应用。&lt;br&gt;预计阅读时间：26分钟。&lt;/p&gt;
