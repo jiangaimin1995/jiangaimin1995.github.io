@@ -17,12 +17,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tdlpblog.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。 在这次的内容中，我们将系统了解预测模型的研究">
 <meta property="og:type" content="article">
 <meta property="og:title" content="临床预测模型|2.预测模型的研究设计相关问题（一）">
-<meta property="og:url" content="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/index.html">
+<meta property="og:url" content="http://tdlpblog.cn/year/0219undefined.html">
 <meta property="og:site_name" content="劝人学医TDLP的博客">
 <meta property="og:description" content="在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。 在这次的内容中，我们将系统了解预测模型的研究">
 <meta property="og:locale" content="zh_CN">
@@ -35,11 +35,11 @@
 <meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-a22f5b91137bd111d5617820de609eb0_1440w.webp">
 
 
-<link rel="canonical" href="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/">
+<link rel="canonical" href="http://tdlpblog.cn/year/0219undefined.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/","path":"2024/02/19/临床预测模型2-1/","title":"临床预测模型|2.预测模型的研究设计相关问题（一）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tdlpblog.cn/year/0219undefined.html","path":"year/0219undefined.html","title":"临床预测模型|2.预测模型的研究设计相关问题（一）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>临床预测模型|2.预测模型的研究设计相关问题（一） | 劝人学医TDLP的博客</title>
@@ -92,7 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -233,7 +233,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/">
+    <link itemprop="mainEntityOfPage" href="http://tdlpblog.cn/year/0219undefined.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -368,7 +368,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2024/02/19/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-1/" title="临床预测模型|2.预测模型的研究设计相关问题（一）">http://example.com/2024/02/19/临床预测模型2-1/</a>
+      <a href="http://tdlpblog.cn/year/0219undefined.html" title="临床预测模型|2.预测模型的研究设计相关问题（一）">http://tdlpblog.cn/year/0219undefined.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -468,7 +468,7 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/02/18/R-pyramid/" rel="prev" title="R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）">
+                <a href="/year/0218undefined.html" rel="prev" title="R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）">
                   <i class="fa fa-angle-left"></i> R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）
                 </a>
             </div>
@@ -594,7 +594,7 @@ setInterval("createtime()",250);
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jiangaimin1995","repo":"jiangaimin1995.github.io","client_id":"85d80bc9b34cd4535610","client_secret":"2b6702e44da8ebcb3c0c7dcf7e59157e5784affe","admin_user":"jiangaimin1995","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"12ef4c969735c40ff3c92d1e251765ec"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jiangaimin1995","repo":"jiangaimin1995.github.io","client_id":"85d80bc9b34cd4535610","client_secret":"2b6702e44da8ebcb3c0c7dcf7e59157e5784affe","admin_user":"jiangaimin1995","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"407785c10edf5945e2b220617ab7acb2"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 
