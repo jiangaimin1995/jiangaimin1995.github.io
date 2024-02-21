@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tdlpblog.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="那么就以这篇推文跟2023说再见吧。2024，劝人学医TDLP持续与各位订阅者一起学习进步！ 尽管今天分享的这篇文章发表于2014年，但是这篇文章对于临床预测模型的开发和评价还是有很大的指导意义。作者结合自己的工作经验，深入浅出地介绍了临床预测模型建立的7个步骤以及模型评价的ABCD原则，旨在引导后人朝着更好的临床预测模型迈进。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则">
+<meta property="og:url" content="http://tdlpblog.cn/year/022148903.html">
+<meta property="og:site_name" content="劝人学医TDLP的博客">
+<meta property="og:description" content="那么就以这篇推文跟2023说再见吧。2024，劝人学医TDLP持续与各位订阅者一起学习进步！ 尽管今天分享的这篇文章发表于2014年，但是这篇文章对于临床预测模型的开发和评价还是有很大的指导意义。作者结合自己的工作经验，深入浅出地介绍了临床预测模型建立的7个步骤以及模型评价的ABCD原则，旨在引导后人朝着更好的临床预测模型迈进。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-fb8e502bb9ff4db143ced23d25d23deb_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-9a195dab29ec795c1b54151ba73aaad1_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-1a1af181deba16336d4b24a5afd2b8ba_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-c31a654b609ea78a08c71a9f2f872f09_1440w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-155b8a00741b558825e072c7fde8aa54_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-f4a73acc786336ba2d37880573fd770b_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-0ef8baa80f2981e74f52bd9d18dc858b_1440w.webp">
+<meta property="article:published_time" content="2024-02-21T12:34:49.000Z">
+<meta property="article:modified_time" content="2024-02-21T12:53:39.623Z">
+<meta property="article:author" content="蒋不言">
+<meta property="article:tag" content="临床预测模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-fb8e502bb9ff4db143ced23d25d23deb_1440w.webp">
+
+
+<link rel="canonical" href="http://tdlpblog.cn/year/022148903.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tdlpblog.cn/year/022148903.html","path":"year/022148903.html","title":"朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则 | 劝人学医TDLP的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="劝人学医TDLP的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">劝人学医TDLP的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The Data Literary Project</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%8C%AE%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">文献概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%97%85%E4%BE%8B%E7%A0%94%E7%A9%B6%EF%BC%9A%E9%A2%84%E6%B5%8B%E6%80%A5%E6%80%A7%E5%BF%83%E8%82%8C%E6%A2%97%E6%AD%BB%E6%82%A3%E8%80%8530%E5%A4%A9%E6%AD%BB%E4%BA%A1%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">病例研究：预测急性心肌梗死患者30天死亡率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%83%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.1.</span> <span class="nav-text">模型开发的七个步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%9A%E4%B9%89%E9%97%AE%E9%A2%98%E5%92%8C%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5"><span class="nav-number">3.2.</span> <span class="nav-text">第一步：定义问题和数据检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E9%A2%84%E6%B5%8B%E5%9B%A0%E5%AD%90%E7%BC%96%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">第二步：预测因子编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%A7%84%E8%8C%83"><span class="nav-number">3.4.</span> <span class="nav-text">第三步：模型规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E4%BC%B0%E8%AE%A1"><span class="nav-number">3.5.</span> <span class="nav-text">第四步：模型估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD"><span class="nav-number">3.6.</span> <span class="nav-text">第五步：模型性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E6%9C%89%E6%95%88%E6%80%A7"><span class="nav-number">3.7.</span> <span class="nav-text">第六步：模型有效性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%91%88%E7%8E%B0"><span class="nav-number">3.8.</span> <span class="nav-text">第七步：模型呈现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81%E7%9A%84ABCD%E5%8E%9F%E5%88%99"><span class="nav-number">4.</span> <span class="nav-text">用于模型验证的ABCD原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Alpha%EF%BC%9A%E5%A4%A7%E8%8C%83%E5%9B%B4%E6%A0%A1%E5%87%86%EF%BC%88calibration-in-the-large%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">Alpha：大范围校准（calibration-in-the-large）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beta%EF%BC%9A%E6%A0%A1%E5%87%86%E6%96%9C%E7%8E%87%EF%BC%88calibration-slope%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">Beta：校准斜率（calibration slope）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concordance-statistic-discrimination%EF%BC%88%E4%B8%80%E8%87%B4%E6%80%A7%E7%BB%9F%E8%AE%A1%EF%BC%9A%E5%8C%BA%E5%88%86%E5%BA%A6%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">Concordance statistic: discrimination（一致性统计：区分度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decision-curve-analysis%EF%BC%88%E5%86%B3%E7%AD%96%E6%9B%B2%E7%BA%BF%E5%88%86%E6%9E%90%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">Decision-curve analysis（决策曲线分析）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a href="/">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="蒋不言">
+  <p class="site-author-name" itemprop="name">蒋不言</p>
+  <div class="site-description" itemprop="description">西安交通大学 | 肿瘤学 | 博士</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="/Roger%E4%B8%8D%E8%A8%80:2251376849@qq.com" title="E-Mail → Roger不言:2251376849@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%EF%BC%9A%E5%8A%9D%E4%BA%BA%E5%AD%A6%E5%8C%BBTDLP" title="WeChat → 微信公众号：劝人学医TDLP" rel="noopener me"><i class="fab fa-weibo fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+  <i class="fa fa-quote-right"></i>
+  <b>一言</b>
+</div>
+
+<div id="hitokoto">:D 獲取中...</div>
+<i id="hitofrom">:D 獲取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://tdlpblog.cn/year/022148903.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="蒋不言">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劝人学医TDLP的博客">
+      <meta itemprop="description" content="西安交通大学 | 肿瘤学 | 博士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则 | 劝人学医TDLP的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则<a href="https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/_posts/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E6%96%871.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-21 20:34:49 / 修改时间：20:53:39" itemprop="dateCreated datePublished" datetime="2024-02-21T20:34:49+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">临床预测模型系列</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>15 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>那么就以这篇推文跟2023说再见吧。2024，劝人学医TDLP持续与各位订阅者一起学习进步！</p>
+<p>尽管今天分享的这篇文章发表于2014年，但是这篇文章对于临床预测模型的开发和评价还是有很大的指导意义。作者结合自己的工作经验，深入浅出地介绍了临床预测模型建立的7个步骤以及模型评价的ABCD原则，旨在引导后人朝着更好的临床预测模型迈进。</p>
+<span id="more"></span>
+
+
+
+<p><img src="https://pic4.zhimg.com/80/v2-fb8e502bb9ff4db143ced23d25d23deb_1440w.webp" alt="Steyerberg, Ewout W, and Yvonne Vergouwe. “Towards better clinical prediction models: seven steps for development and an ABCD for validation.” European heart journal vol. 35,29 (2014): 1925-31. doi:10.1093/eurheartj/ehu207"></p>
+<h2 id="文献概览"><a href="#文献概览" class="headerlink" title="文献概览"></a><strong>文献概览</strong></h2><p>临床预测模型为个体患者提供了有关疾病存在（诊断）或未来疾病进展过程中事件发生的风险估计（预后）。尽管目前有很多文章介绍临床预测模型的开发及评价等方面的内容，但质量参差不齐。在该综述中，作者建议在<strong>开发预测模型时应考虑以下七个步骤：(1)研究问题的考虑和初始数据检查；(2)预测因子的编码；(3)模型规范；(4)模型估计；(5)模型性能评估；(6)模型的内部验证；(7)模型呈现</strong>。预测模型的有效性评价在理想的情况下应在独立的数据集中进行。作者提出了四个关键指标来评估模型的性能，包括：（1）<strong>总体校准度，或模型截距</strong>；（2）<strong>校准斜率</strong>；（3）<strong>具有一致性统计的区分度</strong>；（4）<strong>临床应用价值，使用决策曲线分析</strong>。作为应用，作者开发并验证了急性心肌梗死患者30天死亡率的预测模型。这说明了所提出的框架对于加强心血管研究中预测模型的方法严谨性和质量的有用性。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>疾病的存在预测（诊断）或疾病未来过程中事件的预测（预后）在当前个体化医学时代变得更加关键。随着影像学、生物标志物和“组学”研究的不断进步，涌现出许多新的诊断和预后预测因子。</p>
+<p>临床预测模型能够整合多个预测因子，为我们提供了对这些因子在模型中相对影响的深入理解。例如，我们可能对炎症标志物如C-反应蛋白在急性冠状动脉综合症的临床过程和结果中的独立预后价值感兴趣。此外，临床预测模型还能为个体患者提供绝对风险的估计。在这里，我们特别关注这类模型的第二个作用，它们通常是通过回归分析技术来开发的。Logistic回归分析在预测二分类事件，例如30天死亡率，中应用最为广泛。而Cox回归在处理时间-事件数据（如长期死亡率）时则是最常见的方法。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-9a195dab29ec795c1b54151ba73aaad1_1440w.webp" alt="图源于网络"></p>
+<p>需要注意的是，临床预测模型的严格开发和验证至关重要。尽管有大量的方法学文献和发表的指导文件，但大多数模型存在方法上的缺陷，或者至少在报告上存在不足之处。作者提出了一种系统的模型开发和验证方法，并以急性心肌梗死患者30天死亡率的预测为例进行了说明。作者比较了一个简单模型（仅包括年龄）与一个更为复杂模型（包括年龄和其他关键预测因子）的性能，这两个模型是在小型或大型数据集中开发的。</p>
+<h2 id="病例研究：预测急性心肌梗死患者30天死亡率"><a href="#病例研究：预测急性心肌梗死患者30天死亡率" class="headerlink" title="病例研究：预测急性心肌梗死患者30天死亡率"></a><strong>病例研究：预测急性心肌梗死患者30天死亡率</strong></h2><p>作为说明，作者使用Gusto-I试验中40830名急性心肌梗死患者的队列。这项试验的数据已用于许多分析，包括开发30天死亡率的预测模型和各种方法学研究。</p>
+<p>作者在美国登记的患者队列中开发模型(n&#x3D;23,034,1565例患者死亡，以及n&#x3D;259，20例死亡的一小部分患者)。作者在美国境外登记的患者队列(n&#x3D;17796,1286例死亡)中验证了模型的性能。第一个模型只包括年龄作为Logistic回归分析中的连续线性变量，而稍微复杂的模型包括年龄、Killip分级、收缩压和心率。这些分析的代码可在<a href="https://link.zhihu.com/?target=http://www.ClinicalPredictionModel.org">http://www.ClinicalPredictionModel.org</a>上找到。最初的Gusto-I模型基于40830名患者，包括14个预测因子。</p>
+<h3 id="模型开发的七个步骤"><a href="#模型开发的七个步骤" class="headerlink" title="模型开发的七个步骤"></a><strong>模型开发的七个步骤</strong></h3><p>作者提出了用回归分析开发预测模型的七个逻辑上不同的步骤。作者提供了一个术语表，总结了与预测模型开发和验证相关的术语的定义和特征。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-1a1af181deba16336d4b24a5afd2b8ba_1440w.webp" alt="img"></p>
+<h3 id="第一步：定义问题和数据检查"><a href="#第一步：定义问题和数据检查" class="headerlink" title="第一步：定义问题和数据检查"></a><strong>第一步：定义问题和数据检查</strong></h3><p><strong>Step 1: Problem definition and data inspection</strong><br>开发临床预测模型首先需要考虑的问题就是确定预测问题。要解决的问题包括：</p>
+<p><strong>(1)确切的研究问题是什么？</strong></p>
+<p>在预测研究中，我们通常都感兴趣的是洞察什么因素可以预测终点，以及基于各种因素的组合提供终点绝对风险估计的问题。事实上，在开发Gusto-I模型时，标题提到了“预测因素……”，这表明我们关注的是预测因素预测30天死亡率的问题。然而，该分析也描述了多变量预测模型的开发，在该模型中，使用Logistic回归公式的多种因素的组合可以预测绝对风险。为了深入了解预测因素的重要性，预测因素对结局事件的影响通常以相对尺度表示，例如，比值比(OR)。例如，年龄越大，30天死亡率越高，反映在Gusto-I中每10年的OR为2.3，95%的可信区间为2.2-2.4。相比之下，风险预测以绝对值范围内的概率表示，范围在0到100%之间。例如，对于50岁和80岁的患者，30天死亡率的预测风险分别为2%和20%。不确定性可以用95%的可信区间来表示。这与相对效应有关，但当提供绝对风险预测时，这可能会迷惑临床医生或者患者。</p>
+<p><strong>(2)关于预测因素已知的情况是什么？</strong></p>
+<p>文献综述和统计学家与临床研究人员之间的紧密互动对于在建模过程中融入主题知识非常重要。完整的GUSTO-I数据集规模异常庞大，因此在许多建模决策中可以可靠地借鉴数据中的发现。通过从GUSTO-I中提取的较小数据集进行的模拟显示，开发的预测模型是不稳定的，并产生过于极端的预测。</p>
+<p><strong>(3)如何挑选病人？</strong></p>
+<p>用于模型开发的患者数据通常是出于不同目的而收集的。GUSTO-I试验旨在研究链激酶和组织型纤溶酶原激活剂的治疗效果。该试验的纳入标准相对广泛，这意味着Gusto-I患者可能对急性心肌梗死患者群体具有合理的代表性。作者认识到，当随机对照试验数据用于预后研究时，代表性通常是一个令人担忧的问题，但这可能会被数据的卓越质量所抵消。对于当前医疗实践中的风险预测，Gusto-I数据可能已经过时，因为试验是20多年前的。</p>
+<p><strong>(4)另一个问题是，我们应该如何在预后分析中处理任何治疗效果？</strong></p>
+<p>治疗效果可能具有特殊的意义，对基线预后因素的调整在估计适用于个别患者的治疗效果方面有几个优势。如果重点放在绝对风险预测上，治疗效果往往被忽视，因为与预后因素的影响相比，治疗效果通常相对较小。在作者对GUSTO-I试验的分析中，作者研究预后的影响，而不考虑治疗。</p>
+<p>对于诊断预测模型，这些模型应该在被怀疑患有特定疾病的受试者中开发。选择应该模拟临床环境，例如，我们可能考虑对于疑似患有阻塞性冠状动脉疾病的胸痛患者开发一个诊断预测模型，该模型用于估计阻塞性疾病的风险。</p>
+<p><strong>(5)预测因子是否被可靠而完全地测量？</strong></p>
+<p>许多数据集在某些潜在预测因子的数值方面是不完整的。默认情况下，具有任何缺失值的患者被排除在统计分析之外（完全病例分析或可用病例分析）。这是低效的，因为其他预测因子的可用信息被丢失。为解决这个问题，我们可以填补缺失值的最佳估计值，利用数据集中变量之间的相关性（包括预测因子、终点和辅助变量，如日历时间和地点）。有各种统计方法可用于执行此类缺失值的插补。多重插补是一种多次填补缺失值的程序（通常至少五次），以适当地处理估计过程的随机性。我们认识到插补应该谨慎进行，但通常比完全病例分析更可取。</p>
+<p>在GUSTO-I研究中，基线数据的收集是</p>
+<p>前瞻性的，因为它是一项随机对照试验，并且所有预测因子的定义都在试验方案中得到了仔细记录。这使作者对数据的质量感到自信。它还限制了缺失值的发生，这些值通过考虑预测因子变量之间的相关性而进行单次插补程序来填补。</p>
+<p><strong>(6)终点是感兴趣的嘛？</strong></p>
+<p>通常更偏向于硬性终点，比如GUSTO-I中的30天死亡率，这也是试验的主要终点。另一个重要问题是终点的发生频率，这决定了有效样本量（而非患者总数）。GUSTO-I数据集中有2851例死亡病例，这使得可靠的预测建模成为可能，其中一个常见的经验法则是要求每个变量至少有10个事件（EPV）。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-c31a654b609ea78a08c71a9f2f872f09_1440w.webp" alt="img"></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485114&idx=1&sn=8782185c36f275a839139b35e0b8a2f6&chksm=c2901e1ff5e797090651eb8b570db0e711432855242735ed8f5660495fb68f7db598d0009fee&scene=21%23wechat_redirect">R与临床预测模型|临床预测模型中的样本量计算问题及pmsampsize实现过程</a></p>
+<h3 id="第二步：预测因子编码"><a href="#第二步：预测因子编码" class="headerlink" title="第二步：预测因子编码"></a><strong>第二步：预测因子编码</strong></h3><p><strong>Step 2: Coding of predictors</strong><br>分类和连续的预测变量可以以不同的方式进行编码。例如，很少出现的类别可以与其他类别合并。在GUSTO-I中，梗死的位置可能被编码为前壁 vs. 其他，而不是前壁、下壁和其他，因为除前壁或下壁外的其他位置很少见（占患者的3%），并且这并没有改善模型拟合（P &#x3D; 0.30，用于改善 logistic 回归模型的似然比检验）。连续的预测变量通常可以在回归模型中建模为线性关系，至少作为一个起点。解释预测变量的相对效应需要注意测量尺度。例如，年龄的重要性在每十年为单位时更容易解释（OR：2.3，每十年增加一倍的几率），而在每年为单位时则较难解释（OR：1.09，每年增加9%的机率）。对于非线性关系的预测变量，如 J 形或 U 形，线性项显然不适用。这样的形状可以有效地使用受限制的三次样条或分数多项式进行建模。这些函数提供了灵活性，但只使用了少量额外的回归系数。作者强调，在模型开发阶段不应将连续性变量转换为分类变量（分类为低于或高于某个特定阈值），因为这会导致有价值的信息丧失。在稍后的阶段中，如果预测信息的损失有限，我们可以将一些预测因子分类处理。</p>
+<h3 id="第三步：模型规范"><a href="#第三步：模型规范" class="headerlink" title="第三步：模型规范"></a><strong>第三步：模型规范</strong></h3><p><strong>Step 3: Model specification</strong></p>
+<p>可以遵循各种策略来选择要包括在预测模型中的预测因子。逐步选择方法被广泛应用于预测因子筛选，但有许多缺点。在259例患者的小样本中，年龄和收缩压是有统计学意义的预测因子，而Killip分级(P&#x3D;0.31)和心率(P&#x3D;0.92)不是有统计学意义的预测因子。在整个GUSTO-I数据集中，样本量足够大，可以依靠统计分析来识别预测因素。为Gusto-I模型选择的所有14个预测因子P值都小于0.01。一个相关的问题是研究人员应该如何处理回归模型中的假设，例如一个预测因子的效果是相同的，而不考虑其他预测因子的值。在完整的Gusto-I数据集中，有一个这样的项被包括在预测模型中(年龄*Killip分级)。似乎Killip分级越高，对老年患者的预后影响就越小。对于时间-事件数据，Cox模型假设影响的比例，这可以用包括时间在内的交互作用项进行测试。我们注意到，对预测因子的重要性、模型中的假设以及适应性进行迭代循环的测试可能会产生一个数据拟合良好的模型。但是，这样的模型可能提供的预测并不适用于研究数据之外的新对象（即“过拟合”）。一个简单而稳健的模型可能并不完全适应数据，但在研究特定数据时应该优先考虑，而不是一个过于精细调整的模型。同样，预测因子的选择通常应考虑临床知识和先前的研究，而不仅仅依赖于统计选择方法。</p>
+<h3 id="第四步：模型估计"><a href="#第四步：模型估计" class="headerlink" title="第四步：模型估计"></a><strong>第四步：模型估计</strong></h3><p><strong>Step 4: Model estimation</strong><br>一旦模型被确定，就需要估计回归系数。对于 logistic 回归和 Cox 回归模型，我们通常使用最大似然（ML）方法来估计系数。一些现代技术已经被开发出来，旨在限制模型对可用数据的过度拟合，例如统计收缩技术、惩罚最大似然估计和最小绝对收缩与选择算子（LASSO）。对于在259名患者中估计的模型，作者发现一个收缩因子为0.82。应该将回归系数乘以该值，以提供对新患者更可靠的预测。</p>
+<h3 id="第五步：模型性能"><a href="#第五步：模型性能" class="headerlink" title="第五步：模型性能"></a><strong>第五步：模型性能</strong></h3><p><strong>Step 5: Model performance</strong><br>对于一个提出的模型，研究人员需要确定其性能。通常使用几种性能指标，包括用于模型校准和判别的指标。我们将讨论这些指标以及用于模型验证的临床实用性指标。</p>
+<h3 id="第六步：模型有效性"><a href="#第六步：模型有效性" class="headerlink" title="第六步：模型有效性"></a><strong>第六步：模型有效性</strong></h3><p><strong>Step 6: Model validity</strong><br>区分内部有效性和外部有效性是很重要的。预测模型的内部有效性是指对数据来源的基础人群有效性(“再现性”)。内部验证可能特别涉及预测指标选择的稳定性和预测的质量。使用随机样本进行模型开发，其余患者用于验证(‘拆分队列验证’)是一种常见但不是最优的内部验证形式。较好的方法是交叉验证（ cross-validation）和重抽样（bootstrap resampling），这些方法中的样本都是从模型开发队列的样本中替换而来的。在259名患者的小样本中，重抽样的结果提示模型对新患者的辨别能力预计将从0.82降至0.78。在开发预测模型时，应始终尝试这种内部验证(表1和表2)。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-155b8a00741b558825e072c7fde8aa54_1440w.webp" alt="img"></p>
+<p>外部验证通常被认为是对预测模型的一种比内部验证更强和更有效的性能检验，因为它涉及的是模型的可转移性（泛化性），而不是再现性。外部效度可以通过研究最近接受治疗(时间验证)、来自其他医院(地理验证)或在完全不同的环境中接受治疗的患者(强外部验证)来评估。</p>
+<h3 id="第七步：模型呈现"><a href="#第七步：模型呈现" class="headerlink" title="第七步：模型呈现"></a><strong>第七步：模型呈现</strong></h3><p><strong>Step 7: Model presentation</strong><br>最后一步是如何呈现预测模型，使其最好地解决临床需求。可以使用回归公式，例如与Gusto-I模型一起发布的公式。为了便于模型的适用性，有许多替代方案，包括评分系统和诺模图。最近的一个趋势是将预测模型作为基于网络的计算器，或作为手机和平板电脑的应用程序。在未来，预测模型可能会很好地嵌入决策辅助工具和电子患者记录中，以支持临床决策。</p>
+<h2 id="用于模型验证的ABCD原则"><a href="#用于模型验证的ABCD原则" class="headerlink" title="用于模型验证的ABCD原则"></a><strong>用于模型验证的ABCD原则</strong></h2><p>无论用什么方法来建立一个模型，模型有效性才是最重要的度量标准。作者在评估预测模型的有效性时提出了四个关键指标，与校准、区分和临床用途有关。通过研究在美国登记参加Gusto-I的259名或23 034名患者所开发的模型的外部有效性，并在来自美国以外的17796名Gusto-I患者中进行测试，作者说明了这些指标的意义。</p>
+<h3 id="Alpha：大范围校准（calibration-in-the-large）"><a href="#Alpha：大范围校准（calibration-in-the-large）" class="headerlink" title="Alpha：大范围校准（calibration-in-the-large）"></a><strong>Alpha：大范围校准（calibration-in-the-large）</strong></h3><p>校正是指观察到的终点和预测之间的一致性。例如，如果我们预测患者在30天内死亡的风险为5%，那么在这样的预测下，观察到的比例应该是每100人中有5人死亡。可以用图形来很好地评估模型的校准能力-即校准图(图1)。在校准图中，Y轴上的观测值为0或1(死&#x2F;活)，而x轴上的预测值在0至100%之间。为了直观地显示观察值和预测值之间的一致性，可以使用平滑技术来很好地描述两者之间的相关性。我们还可以绘制具有类似预测风险的患者组的观察到的死亡比例，例如，通过预测的十分之一。考虑到这类群体与理想情况（预测值和观测值完全一致，即图1中的斜线）的偏差，使该图成为常用的Hosmer-Lemesow拟合优度检验的图形说明。然而，作者不建议将此测试用于评估模型的校准度。因为它不指明任何错误校准的方向，仅提供每组患者观察到的和预测的终点之间的差异的P值。这种分组是任意和不精确的，P值取决于错误校准的程度和样本大小的组合。相反，作者强调考克斯在1958提出的旧的重新校准的思想。完美预测应该在理想线上，用截距α(‘A’)&#x3D;0和斜率β(‘B’)&#x3D;1来描述。预测的对数比值被用作0&#x2F;1结局的预测因子，或对数风险比用于时间-事件数据。反之，不完美校准可以通过偏离这些理想值来表征。截距A与整体校准有关，它将所有预测风险的平均值与观察到的平均风险进行比较。因此，该参数表示系统预测过低或过高的程度。在模型开发时，回归模型的观察发病率和平均预测风险是相等的，对总体校准的评估是没有意义的。在外部验证中，经常发现大规模校准问题，例如，在多个种族群体中的Framingham模型，或NICE为英国开发的Framingham延伸模型。如果我们测试在美国以外的23 034名美国患者中开发的预测模型，我们注意到略高的死亡率(A&#x3D;0.07，P&#x3D;0.38；相当于非美国和美国的OR为EXP(0.07)&#x3D;1.07，如图1所示)。需要注意的是，如果Cox模型被用于外部验证，那么截距不能计算。在这种情况下，我们可以将某个时间点(例如5年或10年)的预测风险的平均值与Kaplan-Meier曲线的估计值进行比较。其他类型的模型，如威布尔（Weibull ）回归模型，也可用于评估生存模型的总体校准。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-f4a73acc786336ba2d37880573fd770b_1440w.webp" alt="图1在美国境外参加Gusto-I的17796名患者中应用的临床预测模型的校准曲线图。(A)大范围校准计算为Logistic回归模型截距，假设校准斜率等于1；(B)Logistic回归模型中的校准斜率，其中线性预测值是唯一的预测值；(C)C统计量表明区分度。三角形表示按相似预测风险分组的受试者的十分位数。图底部表示受试者"></p>
+<h3 id="Beta：校准斜率（calibration-slope）"><a href="#Beta：校准斜率（calibration-slope）" class="headerlink" title="Beta：校准斜率（calibration slope）"></a><strong>Beta：校准斜率（calibration slope）</strong></h3><p>如果模型是在相对较小的数据集中开发的，则校准斜率B通常小于1。这样的发现反映出预测太过极端：低预测太低，高预测太高。对于基于259名患者的模型，17796名非美国患者的斜率为0.70，与内部验证时的预期一致(收缩系数0.82)。对于基于23034名患者的模型，B在通过交叉验证或重抽样的内部验证时接近1，在非美国患者的外部验证时接近1(斜率0.99，与图1的斜率1相比P&#x3D;0.55)。</p>
+<h3 id="Concordance-statistic-discrimination（一致性统计：区分度）"><a href="#Concordance-statistic-discrimination（一致性统计：区分度）" class="headerlink" title="Concordance statistic: discrimination（一致性统计：区分度）"></a><strong>Concordance statistic: discrimination（一致性统计：区分度）</strong></h3><p>区分度指的是模型区分出现终点事件的病人(死亡)和没有出现终点事件的病人(活着)的能力。较好的判别模型与较差的判别模型相比在预测之间的差异更大。事实上，预测所有受试者的预测风险等于发病率的模型具有完美的校准能力，但由于它并不能区分患者，因此并不能带来实际的用处。显示为直方图的预测之间或预测风险的十分位之间存在广泛差异的验证图，表明模型有很好的区分能力(图1)。区分能力通常用一致性(C)统计量来量化。对于二分类终点，C统计量与受试者工作特征(ROC)曲线下的面积相同，ROC曲线展示预测模型对于预测终点事件的灵敏度和区分度。对于时间-事件终点，例如存活率，C的计算可能会受到不完全随访(删失)的量的影响。我们注意到，C统计量对校准中的系统误差不敏感，并考虑了在有和没有终点的一对患者中相当人为的分类情况。在Gusto-I中，C-统计量表明，在两个患者中，一个在30天内死亡，另一个存活，死亡的患者将具有比存活患者更高的预测风险。较复杂的预测模型的C-统计量超过0.8[内部和外部验证时分别为0.813(0.802-0.824)和0.812(0.800-0.824)]。这一性能比只包括年龄的模型要好得多(外部验证时为0.75)。在只有259名患者有进展的情况下，C-统计量为0.82，但内部验证为0.78，外部验证为0.80(0.79-0.82)。这说明较小的数据集的降低了外部验证的模型性能。</p>
+<h3 id="Decision-curve-analysis（决策曲线分析）"><a href="#Decision-curve-analysis（决策曲线分析）" class="headerlink" title="Decision-curve analysis（决策曲线分析）"></a><strong>Decision-curve analysis（决策曲线分析）</strong></h3><p>校准度和区分度是反映预测模型性能的两个重要方面，并考虑预测风险的全部范围。如果预测模型旨在指导治疗决策，则需要一个分界点，将患者分为低风险(不需要接受治疗)或高风险(需要接受治疗)。这一分界点是一个决策门槛。在门槛处，受益的可能性，例如由于溶栓治疗而降低的死亡率，恰好平衡了伤害的可能性，例如出血风险和财务成本。例如，2%的阈值意味着未经治疗的患者死亡的情况相比于出血事件的并发症和不必要治疗的患者的费用而言，是98：2，即49倍。通常很难定义一个门槛，因为往往缺乏关于利益和损害的相对权重的经验证据。此外，一些患者可能准备承担比其他患者更高的风险以获得可能的临床获益。因此，建议在量化预测模型的临床有用性时考虑一系列阈值。一旦应用一个阈值来将患者分为低风险和高风险，敏感性和特异性通常被用作有效性的衡量标准。考虑到治疗的危害和益处，结合终点的发生率，找到这些之间的最佳平衡也是可能的。敏感度和特异度之和只能用作有用性的简单汇总指标，因为这样的总和忽略了真阳性(在敏感度中考虑)和假阳性(在1-特异度中考虑)的相对权重。最近提出的更适当的汇总措施包括净获益(Nb)。这一衡量标准与使用最优决策阈值对病人进行分类是一致的。损害和益处的相对权重被用来定义阈值，并被用来计算真-减去假阳性分类的加权和。对于Gusto-I，我们首先注意到7%的总30天死亡率意味着最大NB为7%。如果我们使用0%的阈值，则可以获得这一结果。所有患者都是tPA治疗的候选对象，因为我们认为治疗没有任何危害。如果我们意识到治疗会带来一些伤害，那么最佳的决定门槛是0.0%。我们发现，根据模型的风险预测进行治疗决策会比治疗每个人产生略高的NB。例如，在2%的阈值下，在17796名非美国患者中，我们有1225个真阳性分类(候选治疗，死亡)，但也有11192个假阳性分类(候选治疗，但存活)。Nb的计算公式为(1225-2&#x2F;98×11 192)&#x2F;17 796&#x3D;5.6%(图2)。这只比治疗ALL略好一点，因为1286人死亡，16510人总体存活，因此治疗ALL的人数为Nb&#x3D;(1286-2&#x2F;98×16 510)&#x2F;17 796&#x3D;5.3%。这一差值为0.3%。这意味着，对于我们应用预测模型的每1000名患者，在不增加假阳性率的情况下，识别出额外的三个真阳性。阈值越高，Nb越高，例如5%(每1000个额外的真阳性净值中有19个)。仅根据年龄，在2%的决策阈值(0.04%，图2)中几乎没有NB，而在仅基于259名患者(0.2%，图2)的模型中，NB实际上是不存在的。图2说明，使用比年龄更多的预后信息可以增加模型的临床实用性，并且样本量越大，模型的执行效果越好。目前有公开的网站提供决策曲线分析的文档和软件(<a href="https://link.zhihu.com/?target=http://www.ecisioncurveanalysis.org">http://www.ecisioncurveanalysis.org</a>)，同时考虑二分类和时间-事件端点事件。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-0ef8baa80f2981e74f52bd9d18dc858b_1440w.webp" alt="图2在美国以外的17796名参加Gusto-I的患者中应用的预测模型的决策曲线"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/zhifubao.jpg" alt="蒋不言 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>蒋不言
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://tdlpblog.cn/year/022148903.html" title="朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则">http://tdlpblog.cn/year/022148903.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+           <div class="post-tags">
+              <a href="/tags/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 临床预测模型</a>
+          </div>
+          <script type="text/javascript">
+            var tagsall=document.getElementsByClassName("post-tags")
+            for (var i = tagsall.length - 1; i >= 0; i--){
+                var tags=tagsall[i].getElementsByTagName("a");
+                for (var j = tags.length - 1; j >= 0; j--) {
+                    var golden_ratio = 0.618033988749895;
+                    var s = 0.5;
+                    var v = 0.999;
+                    var h = golden_ratio + Math.random()*0.8 - 0.5;
+                    var h_i = parseInt(h * 6);
+                    var f = h * 6 - h_i;
+                    var p = v * (1 - s);
+                    var q = v * (1 - f * s);
+                    var t = v * (1 - (1 - f) * s);
+                    var r, g, b;
+                    switch (h_i) {
+                        case 0:
+                            r = v;
+                            g = t;
+                            b = p;
+                            break;
+                        case 1:
+                            r = q;
+                            g = v;
+                            b = p;
+                            break;
+                        case 2:
+                            r = p;
+                            g = v;
+                            b = t;
+                            break;
+                        case 3 :
+                            r = p;
+                            g = q;
+                            b = v;
+                            break;
+                        case 4:
+                            r = t;
+                            g = p;
+                            b = v;
+                            break;
+                        case 5:
+                            r = v;
+                            g = p;
+                            b = q;
+                            break;
+                        default:
+                            r = 1;
+                            g = 1;
+                            b = 1;
+                      }
+                    tags[j].style.background = "rgba("+parseInt(r*255)+","+parseInt(g*255)+","+parseInt(b*255)+","+0.5+")";
+                }
+            }                        
+            </script>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_email"></a>
+      <a class="a2a_button_qzone"></a>
+      <a class="a2a_button_douban"></a>
+      <a class="a2a_button_evernote"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/year/021961239.html" rel="prev" title="临床预测模型|2.预测模型的研究设计相关问题（一）">
+                  <i class="fa fa-angle-left"></i> 临床预测模型|2.预测模型的研究设计相关问题（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/year/022133039.html" rel="next" title="临床预测模型|预测研究中的验证问题：应该废除队列拆分？">
+                  临床预测模型|预测研究中的验证问题：应该废除队列拆分？ <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">蒋不言</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:02</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("02/16/2024 10:00:00"); 
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/wavedrom.min.js","integrity":"sha256-psuqlelzklLSAoqBmPNNdyJw8msJdKgKpUFJZQlJJjo="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  <script src="/js/third-party/addtoany.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jiangaimin1995","repo":"jiangaimin1995.github.io","client_id":"85d80bc9b34cd4535610","client_secret":"2b6702e44da8ebcb3c0c7dcf7e59157e5784affe","admin_user":"jiangaimin1995","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"63221faf1d891eebb176d70f1d0ad2c8"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 65,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 65,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>

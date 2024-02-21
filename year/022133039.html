@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tdlpblog.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="临床预测模型的验证问题一直以来是一个大家较为关注的问题。尤其是在缺乏外部验证的情况下。在很多的临床预测模型中，队列拆分随处可见。尤其是在一些小样本研究中，也可以看到作者将数据集随机拆分为训练队列和内部验证队列。尽管是在很多已发表的SCI论文中都能看到这一现象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="临床预测模型|预测研究中的验证问题：应该废除队列拆分？">
+<meta property="og:url" content="http://tdlpblog.cn/year/022133039.html">
+<meta property="og:site_name" content="劝人学医TDLP的博客">
+<meta property="og:description" content="临床预测模型的验证问题一直以来是一个大家较为关注的问题。尤其是在缺乏外部验证的情况下。在很多的临床预测模型中，队列拆分随处可见。尤其是在一些小样本研究中，也可以看到作者将数据集随机拆分为训练队列和内部验证队列。尽管是在很多已发表的SCI论文中都能看到这一现象。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-12705e7d8d564b4b4289c8c459763726_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-076af37b3ece0a8e373e0b09a263aff5_1440w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-197000f774591d24079d6bcdd6246483_1440w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-a4a1edf28b1034a154223cecbf0b7396_1440w.webp">
+<meta property="article:published_time" content="2024-02-21T12:40:20.000Z">
+<meta property="article:modified_time" content="2024-02-21T12:54:25.871Z">
+<meta property="article:author" content="蒋不言">
+<meta property="article:tag" content="临床预测模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-12705e7d8d564b4b4289c8c459763726_1440w.webp">
+
+
+<link rel="canonical" href="http://tdlpblog.cn/year/022133039.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://tdlpblog.cn/year/022133039.html","path":"year/022133039.html","title":"临床预测模型|预测研究中的验证问题：应该废除队列拆分？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>临床预测模型|预测研究中的验证问题：应该废除队列拆分？ | 劝人学医TDLP的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="劝人学医TDLP的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">劝人学医TDLP的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The Data Literary Project</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%91%E7%8E%B0"><span class="nav-number">1.1.</span> <span class="nav-text">主要发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">这意味着什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%A0%B7%E6%9C%AC%E9%AA%8C%E8%AF%81"><span class="nav-number">2.1.</span> <span class="nav-text">大样本验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E6%A0%B7%E6%9C%AC%E9%AA%8C%E8%AF%81"><span class="nav-number">2.2.</span> <span class="nav-text">小样本验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%A0%94%E7%A9%B6"><span class="nav-number">2.3.</span> <span class="nav-text">模拟研究</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%A4%BA"><span class="nav-number">2.4.</span> <span class="nav-text">启示</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a href="/">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.png"
+      alt="蒋不言">
+  <p class="site-author-name" itemprop="name">蒋不言</p>
+  <div class="site-description" itemprop="description">西安交通大学 | 肿瘤学 | 博士</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="/Roger%E4%B8%8D%E8%A8%80:2251376849@qq.com" title="E-Mail → Roger不言:2251376849@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%EF%BC%9A%E5%8A%9D%E4%BA%BA%E5%AD%A6%E5%8C%BBTDLP" title="WeChat → 微信公众号：劝人学医TDLP" rel="noopener me"><i class="fab fa-weibo fa-fw"></i>WeChat</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+  <i class="fa fa-quote-right"></i>
+  <b>一言</b>
+</div>
+
+<div id="hitokoto">:D 獲取中...</div>
+<i id="hitofrom">:D 獲取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://tdlpblog.cn/year/022133039.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="蒋不言">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="劝人学医TDLP的博客">
+      <meta itemprop="description" content="西安交通大学 | 肿瘤学 | 博士">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="临床预测模型|预测研究中的验证问题：应该废除队列拆分？ | 劝人学医TDLP的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          临床预测模型|预测研究中的验证问题：应该废除队列拆分？<a href="https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/_posts/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E6%96%872.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-21 20:40:20 / 修改时间：20:54:25" itemprop="dateCreated datePublished" datetime="2024-02-21T20:40:20+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">临床预测模型系列</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>临床预测模型的验证问题一直以来是一个大家较为关注的问题。尤其是在缺乏外部验证的情况下。在很多的临床预测模型中，队列拆分随处可见。尤其是在一些小样本研究中，也可以看到作者将数据集随机拆分为训练队列和内部验证队列。尽管是在很多已发表的SCI论文中都能看到这一现象。</p>
+<span id="more"></span>
+
+<p>一方面，我们之前谈到过临床预测模型的样本量计算问题。譬如说小样本研究预测模型中基于训练集的多因素回归分析中得到4个回归系数对应有显著统计学差异。而此时，假如整个数据集中有40个患者出现了结局事件，队列拆分后训练集中仅仅有25个患者出现了结局事件。这种情况下还能队列拆分嘛？经验性的做法是10EPV原则。此时用整个数据集来建模更加合理，可以使用交叉验证或者重抽样的方法来对模型进行验证。</p>
+<p>偶然看到很早之前Ewout W. Steyerberg发表的关于一篇预测研究中队列拆分的文章。尽管发表时间较早，但是对人还是颇有启发，建议学习下。此外，Ewout W. Steyerberg编写的临床预测模型（第二版）中对于临床预测模型进行了系统的介绍。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-12705e7d8d564b4b4289c8c459763726_1440w.webp" alt="Steyerberg, Ewout W. “Validation in prediction research: the waste by data splitting.” Journal of clinical epidemiology vol. 103 (2018): 131-133. doi:10.1016/j.jclinepi.2018.07.010"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-076af37b3ece0a8e373e0b09a263aff5_1440w.webp" alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-197000f774591d24079d6bcdd6246483_1440w.webp" alt="img"></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h2><p>精确预测医学结果对于诊断和预后至关重要。如今，主流的医学期刊的标准要求是必须展示预测模型在独立外部验证队列中的有效性。这种数据分割是否是资源浪费的一个例子呢？<strong>在大样本中，关注点应转向评估模型在不同环境中预测性能的异质性。在小样本中，交叉验证和重抽样法是更有效的模型验证方法</strong>。总的来说，应该废除随机数据分割来验证模型的预测性能。</p>
+<h3 id="主要发现"><a href="#主要发现" class="headerlink" title="主要发现"></a><strong>主要发现</strong></h3><p>• 在小样本中进行模型的独立验证，例如在仅有3名患者发生了结局事件的样本量为10的小样本队列中，进行模型验证完全是画蛇添足。</p>
+<p>• 基于数据模拟的验证表明，至少需要100次事件和100次非事件，才能可靠地评估预测性能。</p>
+<p>• 在非常大的样本中，模型整体上的独立验证相对不重要，因为我们应该关注对模型性能在不同环境中的异质性进行评估，而不仅仅是平均水平。</p>
+<p>• 在外部验证研究中，预测模型通常表现不佳</p>
+<p>• 大多数研究的独立验证通常通过随机分割数据集来进行</p>
+<p>• 尽管已知随机拆分数据的验证方式效率低下，但大多数研究仍然按照这种方法进行，反映了对小型和大型样本预测模型验证目标认知的不足</p>
+<h3 id="这意味着什么？"><a href="#这意味着什么？" class="headerlink" title="这意味着什么？"></a><strong>这意味着什么？</strong></h3><p>• 应该废除随机数据拆分用于模型的独立炎症。</p>
+<p>• 在小样本研究中，我们应该接受小规模预测研究仅具有探索性质的事实。我们应该使用交叉验证和重抽样法作为更有效的方法来评估模型的平均水平预测性能。</p>
+<p>• 在大样本研究中，应该评估模型性能在不同环境中的异质性。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a><strong>正文</strong></h2><p>目前，医学诊断和预后模型的研究越来越多。我们也越来越意识到，在外部验证研究中，许多预测模型的表现性能较差。针对这一问题，如今主流的医学期刊的标准要求是必须展示预测模型在独立的外部验证队列中的有效性。研究人员通常会将数据集随机拆分为开发（或训练）队列和验证（或测试）队列。然而，我们看到不管是小样本研究还是大样本研究中都存在这种做法。这种数据分割是对资源的浪费嘛？</p>
+<h3 id="大样本验证"><a href="#大样本验证" class="headerlink" title="大样本验证"></a><strong>大样本验证</strong></h3><p>几乎所有来自 QResearch 一般实践的预测模型中都可以找到用于开发和验证的大样本示例，从而产生 Q 评分算法。这可以看作是大数据方法。在这里，来自数百个普通诊所的例行收集数据用于模型开发，数百个用于验证。这种样本分割的方法因其提供独立、因此无偏的模型性能评估而具有吸引力。其主要缺点是这种样本拆分验证是低效的。如果样本量非常庞大，我们就不需要这种数据拆分的验证方法来估计模型的平均性能。在数据模拟中，当事件数量超过100,000个且预测因子少于100个的情况下，模型的平均预测性能的提升可以忽略不计。这种情况下，应该考虑使用随机效应建模或内部-外部验证的方法来评估模型的性能。上述方法中用来开发模型的数据集中的部分数据被迭代地排除。因此，这种分析方法可以量化模型预测性能的异质性，而不是强调其平均性能。总体而言，有人可能会认为在大数据集中进行样本拆分验证是低效的，但对结果却没有任何影响。另一方面，模型验证通常也会涉及到样本量较小的情况。</p>
+<h3 id="小样本验证"><a href="#小样本验证" class="headerlink" title="小样本验证"></a><strong>小样本验证</strong></h3><p>最近一个相当极端的数据分割的例子是在白血病中评估单细胞分析的预测价值的研究。为了预测复发，研究团队在54名白血病患者中开发了一个预测模型（80%的患者用于训练，n &#x3D; 44），并在其余20%的患者中进行验证（n &#x3D; 10）。作者通过C-统计量评估模型的判别能力。研究发现，在验证队列的10名患者中有3例复发，且完全分开：这3例复发发生在“高风险”组中，而在7名“低风险”患者中未发现任何复发。这似乎过于美好以至于难以置信。不必成为理论统计学家也能理解，用3个事件进行验证伴有着巨大的不确定性，这意味着对这种小样本验证需要非常谨慎的解释。有人建议至少需要100个事件来可靠评估预测性能，而其他人建议相对较小的样本量。通过在不同样本量的数据集上进行模拟研究，可以很好地研究模型预测性能评估的不确定性，以检验两个假设：</p>
+<p>\1. 用3个事件进行验证完全属于画蛇添足。</p>
+<p>\2. 至少使用100个事件进行验证是合理的。</p>
+<h3 id="模拟研究"><a href="#模拟研究" class="headerlink" title="模拟研究"></a><strong>模拟研究</strong></h3><p>在这里，作者设计了一项模拟研究，设置了以下3个不同样本大小的数据集，但是每个数据集中都有30%的事件发生率（类似于白血病研究）：极小样本（10名患者，3个事件）、中等样本（333名患者，100个事件）、大样本（1667名患者，500个事件）。作者通过模拟检验了3种不同预测模型的变异性，假设预测模型的真实C-统计量为0.7、0.8或0.9。作者发现，仅有3个事件时，相当一部分验证样本被认为会出现结局事件（C&#x3D;1），即在真实C-统计量为0.7、0.8和0.9的验证中分别为6%、15%和35%。另一方面，在真实C-统计量远高于0.5的情况下，预测较差的情况（C&lt;0.5）发生的概率分别为15%、5%和1%。95%CI分别从C&#x3D;0.29、0.43、0.62开始，到C&#x3D;1.0结束。在100个事件的模拟数据集中，真实C为0.7、0.8和0.9的95%范围分别为[0.64-0.76]、[0.75-0.85]、[0.86-0.93]。进一步发现当在500个事件的数据集中时，C的置信区间更小：真实C为0.7、0.8和0.9的95%范围分别为[0.67-0.73]、[0.78-0.82]、[0.88-0.92]。这些结果支持假设1：在10名患者中有3个事件的验证完全属于画蛇添足，即使真实C-统计量为0.7，也有可能出现C&#x3D;1的情况（观察到c&#x3D;1的概率为6%）。关于至少有100个事件的第二个主张更具争议，不确定性仍然相当大，真实值的95%CI在C-统计量的上下0.05范围之间。例如真实C-统计量为0.8时为0.75-0.85。当有500个事件时，可以实现更可靠的评估。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Simulation, May 2018 </span></span><br><span class="line">library<span class="punctuation">(</span>rms<span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">i <span class="operator">&lt;-</span> 100000 <span class="comment"># sufficient precision </span></span><br><span class="line">Results  <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span>nrow<span class="operator">=</span>i<span class="punctuation">,</span> ncol<span class="operator">=</span><span class="number">3</span><span class="punctuation">)</span> </span><br><span class="line">set.seed<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>j <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span>i<span class="punctuation">)</span> <span class="punctuation">&#123;</span> <span class="comment"># start simulation </span></span><br><span class="line">  n0 <span class="operator">&lt;-</span> 7 </span><br><span class="line">  n1 <span class="operator">&lt;-</span> 3 </span><br><span class="line">  X0 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n0 <span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> <span class="comment"># controls, no event </span></span><br><span class="line">  X1.7 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">0.7416145</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> <span class="comment"># true c = 0.7 </span></span><br><span class="line">  X1.8 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.190232</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span>  <span class="comment"># true c = 0.8 </span></span><br><span class="line">  X1.9 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.812388</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span>  <span class="comment"># true c = 0.9 </span></span><br><span class="line"></span><br><span class="line">  <span class="comment">## ROC area ### </span></span><br><span class="line">  Results<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.7<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.8<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.9<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line"><span class="punctuation">&#125;</span> <span class="comment"># end simulation </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Count complete separation </span></span><br><span class="line">mean<span class="punctuation">(</span>Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="operator">==</span><span class="number">1</span><span class="punctuation">)</span> <span class="comment"># 6.2% </span></span><br><span class="line">mean<span class="punctuation">(</span>Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="operator">==</span><span class="number">1</span><span class="punctuation">)</span> <span class="comment"># 14.8% </span></span><br><span class="line">mean<span class="punctuation">(</span>Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span><span class="operator">==</span><span class="number">1</span><span class="punctuation">)</span> <span class="comment"># 35.4% </span></span><br><span class="line"><span class="comment">############################# </span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Repeat with 100 events </span></span><br><span class="line"><span class="comment"># Simulation </span></span><br><span class="line">i <span class="operator">=</span> <span class="number">100000</span> </span><br><span class="line">Results100  <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span>nrow<span class="operator">=</span>i<span class="punctuation">,</span> ncol<span class="operator">=</span><span class="number">3</span><span class="punctuation">)</span> </span><br><span class="line">set.seed<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>j <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span>i<span class="punctuation">)</span> <span class="punctuation">&#123;</span> <span class="comment"># start simulation </span></span><br><span class="line">  n0 <span class="operator">&lt;-</span> 233 </span><br><span class="line">  n1 <span class="operator">&lt;-</span> 100 <span class="comment"># 0.3 event rate </span></span><br><span class="line">  X0 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n0 <span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.7 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">0.7416145</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.8 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.190232</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.9 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.812388</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment">## ROC area ### </span></span><br><span class="line">  Results100<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.7<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results100<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.8<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results100<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.9<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span>   </span><br><span class="line"><span class="punctuation">&#125;</span> <span class="comment"># end simulation </span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Same for 500 events ## </span></span><br><span class="line"><span class="comment"># Simulation </span></span><br><span class="line">i <span class="operator">=</span> <span class="number">100000</span> </span><br><span class="line">Results500  <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span>nrow<span class="operator">=</span>i<span class="punctuation">,</span> ncol<span class="operator">=</span><span class="number">3</span><span class="punctuation">)</span> </span><br><span class="line">set.seed<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="punctuation">(</span>j <span class="keyword">in</span> <span class="number">1</span><span class="operator">:</span>i<span class="punctuation">)</span> <span class="punctuation">&#123;</span> <span class="comment"># start simulation </span></span><br><span class="line">  n0 <span class="operator">&lt;-</span> 1167 </span><br><span class="line">  n1 <span class="operator">&lt;-</span> 500 <span class="comment"># 0.3 event rate </span></span><br><span class="line">  X0 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n0 <span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.7 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">0.7416145</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.8 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.190232</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line">  X1.9 <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span>n1 <span class="punctuation">,</span> <span class="number">1.812388</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment">## ROC area ### </span></span><br><span class="line">  Results500<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.7<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results500<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.8<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> </span><br><span class="line">  Results500<span class="punctuation">[</span>j<span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> rcorr.cens<span class="punctuation">(</span>x<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span>X0<span class="punctuation">,</span>X1.9<span class="punctuation">)</span><span class="punctuation">,</span> S<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span>n0<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span>n1<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> outx<span class="operator">=</span><span class="built_in">F</span><span class="punctuation">)</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span>   </span><br><span class="line"><span class="punctuation">&#125;</span> <span class="comment"># end simulation </span></span><br><span class="line"><span class="comment"># summarize results </span></span><br><span class="line">describe<span class="punctuation">(</span>as.data.frame<span class="punctuation">(</span>Results<span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line">describe<span class="punctuation">(</span>as.data.frame<span class="punctuation">(</span>Results100<span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line">describe<span class="punctuation">(</span>as.data.frame<span class="punctuation">(</span>Results500<span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">apply<span class="punctuation">(</span>Results<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span>mean<span class="punctuation">(</span>x<span class="operator">&lt;</span><span class="number">.5</span><span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># [1] 0.15197 0.05001 0.00615</span></span><br><span class="line">apply<span class="punctuation">(</span>Results<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span>quantile<span class="punctuation">(</span>x<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.025</span><span class="punctuation">,</span> <span class="number">0.975</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># [,1]      [,2]      [,3]</span></span><br><span class="line"><span class="comment"># 2.5%  0.2857143 0.4285714 0.6190476</span></span><br><span class="line"><span class="comment"># 97.5% 1.0000000 1.0000000 1.0000000</span></span><br><span class="line">apply<span class="punctuation">(</span>Results100<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span>quantile<span class="punctuation">(</span>x<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.025</span><span class="punctuation">,</span> <span class="number">0.975</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># [,1]      [,2]      [,3]</span></span><br><span class="line"><span class="comment"># 2.5%  0.6382403 0.7466094 0.8628326</span></span><br><span class="line"><span class="comment"># 97.5% 0.7596567 0.8490987 0.9330912</span></span><br><span class="line">apply<span class="punctuation">(</span>Results500<span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span>quantile<span class="punctuation">(</span>x<span class="punctuation">,</span> probs <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.025</span><span class="punctuation">,</span> <span class="number">0.975</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"><span class="comment"># [,1]      [,2]      [,3]</span></span><br><span class="line"><span class="comment"># 2.5%  0.6727266 0.7768638 0.8839314</span></span><br><span class="line"><span class="comment"># 97.5% 0.7266461 0.8225587 0.9152837</span></span><br><span class="line"><span class="comment">##################################### </span></span><br><span class="line"><span class="comment"># Plot results</span></span><br><span class="line">library<span class="punctuation">(</span>lattice<span class="punctuation">)</span>  </span><br><span class="line">Results.combi <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span>Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> Results<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">,</span> </span><br><span class="line">                   Results100<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> Results100<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> Results100<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">                   Results500<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span> Results500<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span> Results500<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">Results.combi <span class="operator">&lt;-</span> as.data.frame<span class="punctuation">(</span>cbind<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">3</span><span class="operator">*</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">100</span><span class="punctuation">,</span> <span class="number">3</span><span class="operator">*</span> i<span class="punctuation">)</span><span class="punctuation">,</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">500</span><span class="punctuation">,</span> <span class="number">3</span><span class="operator">*</span> i<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>  </span><br><span class="line">                                     <span class="built_in">c</span><span class="punctuation">(</span><span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.7</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.8</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                                       <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.7</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.8</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                                       <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.7</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.8</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">rep</span><span class="punctuation">(</span><span class="number">0.9</span><span class="punctuation">,</span> i<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> Results.combi<span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line"><span class="built_in">dimnames</span><span class="punctuation">(</span>Results.combi<span class="punctuation">)</span><span class="punctuation">[[</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;Events&quot;</span><span class="punctuation">,</span> <span class="string">&quot;AUC&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Estimates&quot;</span><span class="punctuation">)</span> </span><br><span class="line"></span><br><span class="line">Results.combi<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span> <span class="operator">&lt;-</span>factor<span class="punctuation">(</span>Results.combi<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span>levels<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span><span class="number">100</span><span class="punctuation">,</span><span class="number">500</span><span class="punctuation">)</span><span class="punctuation">,</span>labels<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;3 events&quot;</span><span class="punctuation">,</span><span class="string">&quot;100 events&quot;</span><span class="punctuation">,</span><span class="string">&quot;500 events&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span> </span><br><span class="line">Results.combi<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span> <span class="operator">&lt;-</span>factor<span class="punctuation">(</span>Results.combi<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">,</span>levels<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.7</span><span class="punctuation">,</span> <span class="number">0.8</span><span class="punctuation">,</span> <span class="number">.9</span><span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                           labels<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;C=0.7&quot;</span><span class="punctuation">,</span><span class="string">&quot;C=0.8&quot;</span><span class="punctuation">,</span><span class="string">&quot;C=0.9&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span>  </span><br><span class="line"></span><br><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> Results.combi<span class="punctuation">,</span>aes<span class="punctuation">(</span>Estimates<span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  geom_histogram<span class="punctuation">(</span>fill<span class="operator">=</span><span class="string">&quot;pink&quot;</span><span class="punctuation">,</span>color<span class="operator">=</span><span class="string">&quot;black&quot;</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  facet_wrap<span class="punctuation">(</span>Events<span class="operator">+</span>AUC<span class="operator">~</span>.<span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  scale_x_continuous<span class="punctuation">(</span>limits <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.25</span><span class="punctuation">,</span><span class="number">1.06</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  scale_y_continuous<span class="punctuation">(</span>expand <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">0</span><span class="punctuation">,</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  theme_bw<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line">ggsave<span class="punctuation">(</span><span class="string">&quot;simulation.png&quot;</span><span class="punctuation">,</span>plot <span class="operator">=</span> last_plot<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span>width <span class="operator">=</span><span class="number">8</span><span class="punctuation">,</span>height <span class="operator">=</span> <span class="number">8</span><span class="punctuation">,</span>dpi <span class="operator">=</span> <span class="number">600</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic3.zhimg.com/80/v2-a4a1edf28b1034a154223cecbf0b7396_1440w.webp" alt="img"></p>
+<h3 id="启示"><a href="#启示" class="headerlink" title="启示"></a><strong>启示</strong></h3><ol>
+<li><p>在没有足够样本量的情况下，独立验证是误导性的，应该在模型评估步骤中取消。最好是使用所有数据进行模型开发，并使用某种形式的交叉验证或重抽样来评估模型的平均预测性能。</p>
+</li>
+<li><p>基本上，我们应该接受预测方面的小规模研究是探索性质的，充其量只能展示新生物学见解的潜力，不能期望提供临床适用的测试、预测模型或分类器。基于小样本研究开发预测模型后，模型验证的结果往往并不理想。例如，Mammaprint是一种包含70个基因的分类器，最初在《自然》杂志表。其相对风险（RR）为18，其中78个样本用于模型开发，19个样本用于独立验证。然而，后来更大规模的验证研究显示，在295名妇女中其RR为5.1，而在6693名妇女的前瞻性试验中RR为2.4。因此，充分规模的验证研究对于提供新的预测模型、生物标志物和分类器在将研究从计算机转移到临床中所能期望的实际估计至关重要。</p>
+</li>
+<li><p>验证研究应至少有100个事件才有意义，并且最好是更多而不是更少。此外，如果我们试图评估性能，应提供置信区间以展示估计的不确定性，而不是专注于p值。在大数据中，具有大样本量的验证目标应该转向量化模型性能的异质性，而不是天真地寻求对平均性能的确认，这也可以在不进行数据拆分的情况下估计。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/zhifubao.jpg" alt="蒋不言 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>蒋不言
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://tdlpblog.cn/year/022133039.html" title="临床预测模型|预测研究中的验证问题：应该废除队列拆分？">http://tdlpblog.cn/year/022133039.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+           <div class="post-tags">
+              <a href="/tags/%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 临床预测模型</a>
+          </div>
+          <script type="text/javascript">
+            var tagsall=document.getElementsByClassName("post-tags")
+            for (var i = tagsall.length - 1; i >= 0; i--){
+                var tags=tagsall[i].getElementsByTagName("a");
+                for (var j = tags.length - 1; j >= 0; j--) {
+                    var golden_ratio = 0.618033988749895;
+                    var s = 0.5;
+                    var v = 0.999;
+                    var h = golden_ratio + Math.random()*0.8 - 0.5;
+                    var h_i = parseInt(h * 6);
+                    var f = h * 6 - h_i;
+                    var p = v * (1 - s);
+                    var q = v * (1 - f * s);
+                    var t = v * (1 - (1 - f) * s);
+                    var r, g, b;
+                    switch (h_i) {
+                        case 0:
+                            r = v;
+                            g = t;
+                            b = p;
+                            break;
+                        case 1:
+                            r = q;
+                            g = v;
+                            b = p;
+                            break;
+                        case 2:
+                            r = p;
+                            g = v;
+                            b = t;
+                            break;
+                        case 3 :
+                            r = p;
+                            g = q;
+                            b = v;
+                            break;
+                        case 4:
+                            r = t;
+                            g = p;
+                            b = v;
+                            break;
+                        case 5:
+                            r = v;
+                            g = p;
+                            b = q;
+                            break;
+                        default:
+                            r = 1;
+                            g = 1;
+                            b = 1;
+                      }
+                    tags[j].style.background = "rgba("+parseInt(r*255)+","+parseInt(g*255)+","+parseInt(b*255)+","+0.5+")";
+                }
+            }                        
+            </script>
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+      <a class="a2a_button_email"></a>
+      <a class="a2a_button_qzone"></a>
+      <a class="a2a_button_douban"></a>
+      <a class="a2a_button_evernote"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/year/022148903.html" rel="prev" title="朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则">
+                  <i class="fa fa-angle-left"></i> 朝着更好的临床预测模型：七个开发步骤和验证的ABCD原则
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/year/022124237.html" rel="next" title="Python与机器学习系列推文-持续更新中......">
+                  Python与机器学习系列推文-持续更新中...... <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">蒋不言</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:02</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("02/16/2024 10:00:00"); 
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.js" integrity="sha256-+2+qOqR8CKoHh/AsVR9k2qaDBKWjYNC2nozhYmv5j9k=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/wavedrom.min.js","integrity":"sha256-psuqlelzklLSAoqBmPNNdyJw8msJdKgKpUFJZQlJJjo="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.4.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  <script src="/js/third-party/addtoany.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"jiangaimin1995","repo":"jiangaimin1995.github.io","client_id":"85d80bc9b34cd4535610","client_secret":"2b6702e44da8ebcb3c0c7dcf7e59157e5784affe","admin_user":"jiangaimin1995","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ad23445f618779a93627c8b8fa85be60"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
+
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+
+
+  <script src="/js/wobblewindow.js"></script>
+  <script>
+    //只在桌面版网页启用特效
+    if( window.innerWidth > 768  ){
+      $(document).ready(function () {
+        
+          $('#header').wobbleWindow({
+            radius: 65,
+            movementTop: false,
+            movementLeft: false,
+            movementRight: false,
+            debug: false,
+          });
+        
+
+        
+
+        
+          $('#footer').wobbleWindow({
+            radius: 65,
+            movementBottom: false,
+            movementLeft: false,
+            movementRight: false,
+            offsetX: ,
+            position: 'absolute',
+            debug: false,
+          });
+        
+      });
+    }
+  </script>
