@@ -60,6 +60,131 @@
       </tags>
   </entry>
   <entry>
+    <title>常用的R数据可视化合集，持续更新中</title>
+    <url>/year/022141933.html</url>
+    <content><![CDATA[<ol>
+<li><h2 id="小提琴图-瀑布图-饼图-花瓣图"><a href="#小提琴图-瀑布图-饼图-花瓣图" class="headerlink" title="小提琴图+瀑布图+饼图+花瓣图"></a><strong>小提琴图+瀑布图+饼图+花瓣图</strong></h2></li>
+</ol>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247495119&idx=1&sn=af53ced3f4af9013423892b7eb474af4&chksm=c293f56af5e47c7c8b0a7a07989c0d9e6a63f19b02a91735a2f20024bd67b3f22b548ac2c43b%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（三）</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-1b7c49abfd507ae7e33c75beae369bdd_1440w.webp" alt="花瓣图"></p>
+<span id="more"></span>
+
+<h2 id="2-tnse降维图"><a href="#2-tnse降维图" class="headerlink" title="2. tnse降维图"></a><strong>2. tnse降维图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494623&idx=1&sn=4baf4e3dec655e876f7649bd66d64536&chksm=c293f37af5e47a6cb25896b2b6ed6bf111355816cfb25fb2bd7c24b2c0c4c1dc84db9c54c358%23rd">R学习|探索高维数据的奥秘——Rtsne在R中的应用</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-bd1d4f0dcd30f6ae74bc32b2765fc08b_1440w.webp" alt="tnse降维图+文本注释"></p>
+<h2 id="3-堆叠百分比面积图"><a href="#3-堆叠百分比面积图" class="headerlink" title="3. 堆叠百分比面积图"></a><strong>3. 堆叠百分比面积图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494528&idx=1&sn=6cf4de63d1fbf6e33264d658fc35f3e7&chksm=c293f325f5e47a33d359684d0f8fbd65e2f089e9b09fbb846684f849162af02e6aba2fb70796%23rd">R学习|堆叠百分比面积图了解一下！</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-b718ce47425425936498b077791bf59b_1440w.webp" alt="堆叠百分比面积图"></p>
+<h2 id="4-ggplot2版热图-分面堆叠百分比条形图"><a href="#4-ggplot2版热图-分面堆叠百分比条形图" class="headerlink" title="4. ggplot2版热图+分面堆叠百分比条形图"></a><strong>4. ggplot2版热图+分面堆叠百分比条形图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494434&idx=1&sn=362b5b7bc8d5436f51241639c4dd5937&chksm=c293f387f5e47a914de78e2a901979bab2c73b8375d85be1a012be8292909b45e92290635747%23rd">R学习|感受ggplot2的魅力—Nature Cancer可视化结果复现（二）</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-4987b5d436e8b8a9703f2969e08c4429_1440w.webp" alt="ggplot2版热图"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-e1b6ca95a085122029ca506aaa0f83b2_1440w.webp" alt="分面堆叠百分比条形图"></p>
+<h2 id="5-ggplot2分面相关性散点图-分面热图-分面火山图-分面富集分析条形图"><a href="#5-ggplot2分面相关性散点图-分面热图-分面火山图-分面富集分析条形图" class="headerlink" title="5. ggplot2分面相关性散点图+分面热图+分面火山图+分面富集分析条形图"></a><strong>5. ggplot2分面相关性散点图+分面热图+分面火山图+分面富集分析条形图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494421&idx=1&sn=d62bf5222e541ff2e092f1fa9838ba75&chksm=c293f3b0f5e47aa6fd8d8e6947813fab1a866443d5f25c9b9f45d101b98c75c623fa0639f1d6%23rd">R学习|感受ggplot2的魅力—Nature Cancer可视化结果复现</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-dd68db55f5dd6ccad45fcbbc4fde4056_1440w.webp" alt="分面相关性散点图"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-3cc90a7f0371d84eec82746b0578ea89_1440w.webp" alt="分面热图"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-1fea6f3ac747d19066ec7b25a205b3ed_1440w.webp" alt="分面火山图"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-4e34cb401f68a992ad1d5775b06054c3_1440w.webp" alt="分面富集分析条形图"></p>
+<h2 id="6-ggplot2绘制单多因素回归分析森林图"><a href="#6-ggplot2绘制单多因素回归分析森林图" class="headerlink" title="6. ggplot2绘制单多因素回归分析森林图"></a><strong>6. ggplot2绘制单多因素回归分析森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494284&idx=1&sn=ffe71d34970f2e859d3aa29d7f40a0b8&chksm=c293f229f5e47b3f89eb050a009b79896eed287c8a8d3b2c35a985e2197f9d1910b793e6bf5d%23rd">R学习|一键单多因素回归分析及ggplot2可视化回归分析结果</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-f224490a249221c40612fc5dc8152612_1440w.webp" alt="单多因素回归分析森林图"></p>
+<h2 id="7-重抽样ROC曲线"><a href="#7-重抽样ROC曲线" class="headerlink" title="7. 重抽样ROC曲线"></a><strong>7. 重抽样ROC曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494046&idx=1&sn=01ad2b3f61a5be70649b6bb7946ab90b&chksm=c293f13bf5e4782d346ef3f9cb4a2d4bddece3ad48f89590180cd3732a2620527407521e1376%23rd">勘误—R学习|Bootstrap重抽样ROC曲线了解一下</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-9f3c14db958069f8cac2cca2a9b4a3f2_1440w.webp" alt="重抽样ROC曲线"></p>
+<h2 id="8-个性化lasso回归变量筛选图"><a href="#8-个性化lasso回归变量筛选图" class="headerlink" title="8. 个性化lasso回归变量筛选图"></a><strong>8. 个性化lasso回归变量筛选图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247491445&idx=1&sn=bd0035076a2ef6f61cb85e78ae567067&chksm=c29007d0f5e78ec6ff1c26b889931365dd7d69a832689b7512134c1989ca86672bb147994941%23rd">R学习|你还在用传统的LASSO回归可视化嘛？</a></p>
+<p><img src="https://pic1.zhimg.com/80/v2-aa65d0bfe39ba48fa05bdf70e7d91694_1440w.webp" alt="个性化lasso回归变量筛选图"></p>
+<h2 id="9-生存数据SHAP值可视化"><a href="#9-生存数据SHAP值可视化" class="headerlink" title="9. 生存数据SHAP值可视化"></a><strong>9. 生存数据SHAP值可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247491347&idx=1&sn=6aecf67d3135006adb150078f63b9cc5&chksm=c29007b6f5e78ea0517b1fdff2ae734a3fc4a5e404783dff6e50352c838cdbfdf3c51aa2c8eb%23rd">生存数据机器学习算法模型的SHAP值可视化</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-47fa2d1e2f158d9138e2f0ef217173bf_1440w.webp" alt="生存数据SHAP值可视化"></p>
+<h2 id="10-forestploter绘制meta分析发表级森林图"><a href="#10-forestploter绘制meta分析发表级森林图" class="headerlink" title="10. forestploter绘制meta分析发表级森林图"></a><strong>10. forestploter绘制meta分析发表级森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247490794&idx=1&sn=0866f0b73c04a59a9b01b2736cc2776a&chksm=c290044ff5e78d595e2d131cc72abd4d20944320808999c295f5f0b9f372c8b6b81f46264c70%23rd">R学习|使用forestploter绘制meta分析发表级森林图</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-c2481d1cbc33427c74c60998fe964e3e_1440w.webp" alt="forestploter绘制meta分析发表级森林图"></p>
+<h2 id="11-ggplot2绘制韦恩图"><a href="#11-ggplot2绘制韦恩图" class="headerlink" title="11. ggplot2绘制韦恩图"></a><strong>11. ggplot2绘制韦恩图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247490371&idx=1&sn=dbcba10044f0a1a5e34e8429cb843c0e&chksm=c29003e6f5e78af03a0727eb70f0d471a2eaa58820c8532d31900b1483c306682b254a247d62%23rd">R学习|ggvenn—基于ggplot2绘制韦恩图</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-62855aacf6d17d09dd73312639fcf517_1440w.webp" alt="ggplot2绘制韦恩图"></p>
+<h2 id="12-基于ggplot2绘制生存曲线"><a href="#12-基于ggplot2绘制生存曲线" class="headerlink" title="12. 基于ggplot2绘制生存曲线"></a><strong>12. 基于ggplot2绘制生存曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247489451&idx=1&sn=f5df9c3c06e24ccb1a4db6ecce819f55&chksm=c2900f0ef5e78618aba0fbf8a48b616d3ea3b7e5c6aa77cd4f5a96eca4693b20dcd8b7e7faf4%23rd">R学习|ggsurvfit—基于ggplot2更加灵活地绘制生存曲线</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-9d8f825d6c33fe3cb30366013967f152_1440w.webp" alt="基于ggplot2绘制生存曲线"></p>
+<h2 id="13-协变量校正生存曲线"><a href="#13-协变量校正生存曲线" class="headerlink" title="13. 协变量校正生存曲线"></a><strong>13. 协变量校正生存曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247488654&idx=1&sn=3239e8980488df04bc9b8126e6713e9c&chksm=c2900c2bf5e7853d8d85e48f57d06a1c0f010d5157897f6fdec61c040c71fbc342341b99f869%23rd">R学习|基于R实现协变量校正生存曲线绘制</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-4b0f0d2962509dc6214cb8b67902826f_1440w.webp" alt="ggadjustedcurves函数控制协变量后ECOG的KM曲线-条件法"></p>
+<h2 id="14-ggplot2绘制点图-条形图-组图"><a href="#14-ggplot2绘制点图-条形图-组图" class="headerlink" title="14. ggplot2绘制点图+条形图+组图"></a><strong>14. ggplot2绘制点图+条形图+组图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247488208&idx=1&sn=140763f039e0dd15a57ee93b5418701b&chksm=c2900a75f5e78363cb25f10685a986d6075aef4b1f69cddbbb03f3ab4976a23a21ee9f4f7b4f%23rd">R学习|eLife图表复现——复习ggplot2基础绘图函数</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-58453f766dc6def030eabd5411b29585_1440w.webp" alt="ggplot2绘制点图+条形图+组图"></p>
+<h2 id="15-ggplot2绘制散点饼图"><a href="#15-ggplot2绘制散点饼图" class="headerlink" title="15. ggplot2绘制散点饼图"></a><strong>15. ggplot2绘制散点饼图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487815&idx=1&sn=fb04b9306596700c80d482b35dacc449&chksm=c29009e2f5e780f46c43f6d8380f7d0237e509f18ba5e9f2e5dc2ceac25be63c5a6d9c679f8e%23rd">R学习|基于ggplot2绘制散点饼图展示数据比例</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-e6e1906f70a9be024c4e4105ee1ec6ea_1440w.webp" alt="使用ggplot2和scatterpie包绘制饼图来展示数据构成比"></p>
+<h2 id="16-ggplot2绘制桑基图"><a href="#16-ggplot2绘制桑基图" class="headerlink" title="16. ggplot2绘制桑基图"></a><strong>16. ggplot2绘制桑基图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487770&idx=1&sn=96adf8391cf915eca560bd8c5daae698&chksm=c29009bff5e780a97e0939fe428a8aee63d5ce0778d7fa4800ddd3a001d3f529e183f235722e%23rd">R学习|ggalluvial—基于ggplot2的桑基图可视化</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-7110ac7b231fbfb028a7b07c5e53ec4f_1440w.webp" alt="基于ggplot2的桑基图可视化"></p>
+<h2 id="17-ggplot2绘制云雨图"><a href="#17-ggplot2绘制云雨图" class="headerlink" title="17. ggplot2绘制云雨图"></a><strong>17. ggplot2绘制云雨图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487709&idx=1&sn=d3f6ffd176b6e1c7773bc9faa5607a09&chksm=c2900878f5e7816e53ba75dc2bc11cf22e8328f14e9db9222e58c259b9316be54d8f4fb0091c%23rd">R学习|ggrain—基于ggplot2的云雨图可视化</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-24a7089be3e1cad5436735b468f6bf42_1440w.webp" alt="ggrain实现云雨图可视化"></p>
+<h2 id="18-ggplot2绘制临床相关性热图"><a href="#18-ggplot2绘制临床相关性热图" class="headerlink" title="18. ggplot2绘制临床相关性热图"></a><strong>18. ggplot2绘制临床相关性热图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487685&idx=1&sn=fe03a6a68d36ebc995449149bab0dd19&chksm=c2900860f5e78176a1531f28f40603eeec0d7aae690b6436f6803297ad23de8fb887be306a3b%23rd">R学习|临床相关性热图展示病例临床特征与结局事件之间的相关性</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-95c6da1a83305dcfb1909592fdedd253_1440w.webp" alt="使用ComplexHeatmap包制作一个简单的临床相关性热图展示每个临床病例对应的临床特征与结局事件之间的关系"></p>
+<h2 id="19-堆叠百分比柱状图"><a href="#19-堆叠百分比柱状图" class="headerlink" title="19. 堆叠百分比柱状图"></a><strong>19. 堆叠百分比柱状图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487562&idx=1&sn=0d927f829362803b265be75835d4a3bb&chksm=c29008eff5e781f9c4f331e65c8d28577af1e36f46f4e5512df4e2a5ef7df456cb34c3a83477%23rd">R学习|堆叠百分比柱状图可视化</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-3420991b80638a401e1183596340210d_1440w.webp" alt="堆叠百分比柱状图可视化"></p>
+<h2 id="20-重复测量数据可视化"><a href="#20-重复测量数据可视化" class="headerlink" title="20. 重复测量数据可视化"></a><strong>20. 重复测量数据可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487649&idx=1&sn=7aacd7c27fe937f0e3916e5f9bae87fb&chksm=c2900804f5e7811263fda18e5d034ec5f647c070668a86ecfdf50d51c37e6c3a613db1004f4a%23rd">R学习|科研数据可视化-重复测量数据可视化</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-ef04c9957b24e0cc3dafc3d091a2e9c5_1440w.webp" alt="重复测量数据可视化"></p>
+<h2 id="21-临床研究游泳图"><a href="#21-临床研究游泳图" class="headerlink" title="21. 临床研究游泳图"></a><strong>21. 临床研究游泳图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487555&idx=1&sn=bd76a790ef77e6e6ad2c19ada8d320ac&chksm=c29008e6f5e781f08f0e4ef892b4e483a477586dcc2fd231240a3fcc8716e70df7de606c6653%23rd">R学习|R可视化临床试验中常用的游泳图（swimmer plot）</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-03c32ebf38f84957c533aa40cd213fa6_1440w.webp" alt="临床试验中常用的游泳图（swimmer plot）"></p>
+<h2 id="22-ggplot2可视化回归分析结果"><a href="#22-ggplot2可视化回归分析结果" class="headerlink" title="22. ggplot2可视化回归分析结果"></a><strong>22. ggplot2可视化回归分析结果</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487408&idx=1&sn=a59f59b1b2b4c56f7987e9e7ea075b40&chksm=c2901715f5e79e036cb5656e0ec115145c728e813887aa8e5864719c66d2556f4ac19169e09b%23rd">R学习|使用ggplot2将你的回归分析结果可视化</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-26e97b1b9939356e8f4773405dc57152_1440w.webp" alt="回归分析结果可视化"></p>
+<h2 id="23-ggplot2可视化相关性矩阵"><a href="#23-ggplot2可视化相关性矩阵" class="headerlink" title="23. ggplot2可视化相关性矩阵"></a><strong>23. ggplot2可视化相关性矩阵</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247486651&idx=1&sn=9bf4d80ea6480ec5b8a62fb659bc9e2d&chksm=c290141ef5e79d08e88e51f011276458de880dd4e2105bade438fa5602119d15cfd0febcdf01%23rd">R学习|ggcorrplot：使用ggplot2可视化相关性矩阵</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-02b24ccf8a1196557316c0993ff15996_1440w.webp" alt="ggcorrplot可视化相关性矩阵"></p>
+<h2 id="24-ggplot2绘制个性化森林图"><a href="#24-ggplot2绘制个性化森林图" class="headerlink" title="24. ggplot2绘制个性化森林图"></a><strong>24. ggplot2绘制个性化森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247486396&idx=1&sn=8bdbe1c82c65c0663951dcfd409e711f&chksm=c2901319f5e79a0f26179ff3520e40dfdb0f59af928db3005f57c5c6502cdde5978b55c37d06%23rd">R学习|个性化森林图可视化</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-7173a367eff2644ced17f578768f68d5_1440w.webp" alt="个性化森林图可视化"></p>
+<h2 id="25-复杂热图-富集分析-小提琴图"><a href="#25-复杂热图-富集分析-小提琴图" class="headerlink" title="25. 复杂热图+富集分析+小提琴图"></a><strong>25. 复杂热图+富集分析+小提琴图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485867&idx=1&sn=921b0ca97c1ed3fb2e6cdca1661de1fe&chksm=c290110ef5e798189d5dcf0888d238b7389d9bcc00141d24fc8fd90f3c414fd1e77ceca9dac8%23rd">跟着cmgh学数据可视化|4.复杂热图+富集分析+小提琴图可视化</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-cf7546e51c1bf39cbc54635ddd411ca5_1440w.webp" alt="复杂热图+富集分析+小提琴图可视化"></p>
+<h2 id="26-配对箱线图-PCA-小提琴图"><a href="#26-配对箱线图-PCA-小提琴图" class="headerlink" title="26. 配对箱线图+PCA+小提琴图"></a><strong>26. 配对箱线图+PCA+小提琴图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485501&idx=1&sn=8647c2a970131c0b7c830b7ada576f79&chksm=c2901098f5e7998e42db2fb23ba4c1d0eeb6fde6d38592992fe91dc7ea7fd458672d93744fb8%23rd">跟着cmgh学数据可视化|3.配对箱线图+PCA+小提琴图+组图</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-bd62f3ec588d096543534d1a42af9473_1440w.webp" alt="配对箱线图+PCA+小提琴图+组图"></p>
+<h2 id="27-带统计显著性箱式图-分面箱式图"><a href="#27-带统计显著性箱式图-分面箱式图" class="headerlink" title="27. 带统计显著性箱式图+分面箱式图"></a><strong>27. 带统计显著性箱式图+分面箱式图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485430&idx=1&sn=96c37a8efa720aa20b39d72fb9db5734&chksm=c2901f53f5e796457c17edd14c79301b20c3f377371d9e2885bd86024eedcec1ba2c35dcef2c%23rd">跟着NC学数据可视化|2.带统计显著性检验箱式图及分面箱式图可视化</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-caa186400292643700d91707aa337c26_1440w.webp" alt="带统计显著性检验箱式图及分面箱式图可视化"></p>
+<h2 id="28-堆叠柱状图-箱式图-森林图"><a href="#28-堆叠柱状图-箱式图-森林图" class="headerlink" title="28. 堆叠柱状图+箱式图+森林图"></a><strong>28. 堆叠柱状图+箱式图+森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485345&idx=1&sn=08beb51ea7c63b212672a04591ded654&chksm=c2901f04f5e796120d32d49a492348987af47789072d10cd7ca96c4df7ad2f1fc179b355c424%23rd">跟着CNS学数据可视化系列|1.NC堆叠柱状图、箱式图和森林图可视化</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-2bcf81539e66e1fb2e493e96a3125519_1440w.webp" alt="NC堆叠柱状图、箱式图和森林图可视化"></p>
+<h2 id="29-SHAP值可视化"><a href="#29-SHAP值可视化" class="headerlink" title="29. SHAP值可视化"></a><strong>29. SHAP值可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485227&idx=1&sn=89cf1619a1da68d8dca512830fff12f7&chksm=c2901f8ef5e7969841d8dab89b8fbc905452603d8f1f5cdd4e7ca2bdb5eccf50900758747451%23rd">R与机器学习系列|shapviz——机器学习“黑箱模型”SHAP值可视化</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-870195466a0219da5e457146b3a7f15a_1440w.webp" alt="机器学习“黑箱模型”SHAP值可视化"></p>
+<h2 id="30-层级聚类热图和柱状图可视化"><a href="#30-层级聚类热图和柱状图可视化" class="headerlink" title="30.层级聚类热图和柱状图可视化"></a><strong>30.层级聚类热图和柱状图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496301&idx=1&sn=488b6d25cf04614e135d9e7807db5dbc&chksm=c293eac8f5e463de202d06477b8fa6878f6a8c50b84f42876bc2484aaa52959214b57e700ce2%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（四）</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-4757beb1ccd13a49f25707859d47ec6b_1440w.webp" alt="层级聚类热图"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-52ec0917416c076ab8bee57d36b4ba7a_1440w.webp" alt="柱状图"></p>
+<h2 id="31-配对箱线图可视化"><a href="#31-配对箱线图可视化" class="headerlink" title="31.配对箱线图可视化"></a><strong>31.配对箱线图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496838&idx=1&sn=1b000a3112bba53e6b1cb622883fa601&chksm=c293ec23f5e4653537266e1af21562b774c76d69cf45927a84cdbd6e805752109482e7e327c1%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（五）</a></p>
+<p><img src="https://pic1.zhimg.com/80/v2-28ba522d1759d896d723d52a161276a8_1440w.webp" alt="配对箱线图"></p>
+<h2 id="32-火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化"><a href="#32-火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化" class="headerlink" title="32.火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化"></a><strong>32.火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497244&idx=1&sn=afe3b78c688d8c0306164b65a2ef633b&chksm=c293eeb9f5e467af92df669fd6a5e4c6b196505818cb1ea07442f025eebbfe1148ad5a4cebc3%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature Cancer可视化（六）</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-886f993550899a3e627a218874e60f7d_1440w.webp" alt="img"></p>
+<h2 id="33-肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化"><a href="#33-肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化" class="headerlink" title="33.肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化"></a><strong>33.肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497403&idx=1&sn=dcb31b871e49e19fffdd9e39b0827473&chksm=c293ee1ef5e467087a3c16d993c74ff3a32efa6ff9565dad0977964e29a05577e8712a787826%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature Cancer可视化（七）</a></p>
+<p><img src="https://pic2.zhimg.com/80/v2-3c683ec56425e640eeef28c371683091_1440w.webp" alt="img"></p>
+<h2 id="34-时间依赖C指数的计算及可视化"><a href="#34-时间依赖C指数的计算及可视化" class="headerlink" title="34.时间依赖C指数的计算及可视化"></a><strong>34.时间依赖C指数的计算及可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497491&idx=1&sn=ff0bb46fdf2339a9954834bbc1becd4c&chksm=c293efb6f5e466a01ed0df1ba03abea2c7fe0e151e5b573c86c2f6f9dc9e9fe728ba29b3c45f%23rd">临床预测模型|时间依赖C指数的计算及可视化</a></p>
+<p><img src="https://pic3.zhimg.com/80/v2-789c2c58ba8940e8838798473d27fc0e_1440w.webp" alt="时间依赖C指数"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-3968002f633f8cdd4769533646927dca_1440w.webp" alt="时间依赖C指数"></p>
+<h2 id="35-临床预测模型校正曲线可视化"><a href="#35-临床预测模型校正曲线可视化" class="headerlink" title="35.临床预测模型校正曲线可视化"></a><strong>35.临床预测模型校正曲线可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497529&idx=1&sn=480d8dab4bc20ade902139c1d38c1068&chksm=c293ef9cf5e4668adcd3e4e93c1c4c82f3676acc21724d7f2b977f66398013eb0ed33c39099b%23rd">临床预测模型|是你想要的临床预测模型校正曲线嘛？</a></p>
+<p><img src="https://pic1.zhimg.com/80/v2-e65aba2943516e74026f8ea7b1c32ec4_1440w.webp" alt="临床预测模型校正曲线可视化"></p>
+<h2 id="36-生存数据临床预测模型建立和评价"><a href="#36-生存数据临床预测模型建立和评价" class="headerlink" title="36.生存数据临床预测模型建立和评价"></a><strong>36.生存数据临床预测模型建立和评价</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497820&idx=1&sn=09dc1ed6bb991191bc40b525c465f7d4&chksm=c293e0f9f5e469eff2ec567c6aa6060960931123bf7697cfb7c93ee7dd6972d3d03b8ce0cf7e%23rd">临床预测模型|生存数据临床预测模型的快速建立和评价+美化</a></p>
+<h2 id="37-特定时间点重抽样ROC曲线"><a href="#37-特定时间点重抽样ROC曲线" class="headerlink" title="37. 特定时间点重抽样ROC曲线"></a><strong>37. 特定时间点重抽样ROC曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498218&idx=1&sn=9e85772ae00c15804442ec20cdda9586&chksm=c293e14ff5e46859c13ecea67a911374e3f6664ccdcef04fcac3f75476af6cfa0293c2f0d93a%23rd">临床预测模型|生存模型特定时间点的重抽样ROC曲线绘制</a></p>
+<h2 id="38-结局事件预测概率可视化"><a href="#38-结局事件预测概率可视化" class="headerlink" title="38.结局事件预测概率可视化"></a><strong>38.结局事件预测概率可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498227&idx=1&sn=872ab004f592b6a4f8977b7be6f028d0&chksm=c293e156f5e468409fe555fcf03150dccb21ad848b907d045cb34e9c23c7537f3d4dff3b4e37%23rd">临床预测模型|如何可视化临床预测模型中每个个体结局事件的预测概率？</a></p>
+<h2 id="39-金字塔图AE可视化"><a href="#39-金字塔图AE可视化" class="headerlink" title="39.金字塔图AE可视化"></a><strong>39.金字塔图AE可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247499931&idx=1&sn=ae78e99a3f3c4f330d12e553d494c5bb&chksm=c293d83ef5e451282879e77411625a198de295888f4ff44716e6ea240c9fedfa1a5c5c969704%23rd">R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）</a></p>
+<p><strong>更多科研数据可视化，持续更新中……</strong></p>
+]]></content>
+      <categories>
+        <category>数据可视化</category>
+      </categories>
+      <tags>
+        <tag>R</tag>
+        <tag>ggplot2</tag>
+        <tag>数据可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python与机器学习系列推文-持续更新中......</title>
+    <url>/year/022124237.html</url>
+    <content><![CDATA[<p><img src="https://pic1.zhimg.com/80/v2-c9e5695bb4812686b2897aec73d3152c_1440w.webp" alt="图源于网络"></p>
+<span id="more"></span>
+
+<p><strong>一、Python与机器学习系列推文</strong></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496722&idx=1&sn=0af1ae862fb6cfdceeb0e95e5238662b&chksm=c293ecb7f5e465a185716100e624d2b3bac11e73dff09b9deacfbde811512090b94de577bf98%23rd">Python与机器学习系列|1.Python中的向量、 矩阵和数组（一）</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496758&idx=1&sn=730ed62c8749dee4d6832fe6de8fe634&chksm=c293ec93f5e465852fbe941f25848a4c86f10f8def1d2cff50df0880bc6ab3c571da2c354501%23rd">Python与机器学习系列|1.Python中的向量、 矩阵和数组（二）</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=1&sn=7e57d234596bbb0235edd235356004b9&chksm=c293ee47f5e46751d94aae0f801de6105ccfa3683c3841f45a6137fbac78f306c01d96adbf99%23rd">Python与机器学习系列|3.Python中的数据整理</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498325&idx=2&sn=f626831b8e4ba590c5ef762f4d88a2b4&chksm=c293e2f0f5e46be6720ec414909834539ea31c4141a3263845796551ae70821496a608cc0da9%23rd">Python与机器学习系列|3.Python中的数据整理（二）</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247499968&idx=1&sn=c5e47279e71ac232986af95e3e5e4044&chksm=c293d865f5e451735547aa95fd3e2baec7309e7a0f850c42cde02bfc0195e9d4e62c609a8d94%23rd">Python与机器学习系列|4.处理数值型数据（一）</a></p>
+<p><strong>二、Python与机器学习应用实例</strong></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=4&sn=be429aafece9135f637d7eddefc5b342&chksm=c293ee47f5e46751801fb89d9893fd873d8c3831bbe02c59d991fba9f64ef711919d599b7dd5%23rd">机器学习|Python中评价不同机器学习算法预测疾病风险表现能力</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=5&sn=62c1895e8a473c734fdf6baa3ef3215e&chksm=c293ee47f5e46751b9ddb6222922d08d189ddb4e7e11bc11d3eb2a6fe5cc83f39cfe2b4db5f6%23rd">机器学习|SHAP value的另一种R可视化方式以及Python实现SHAP value可视化</a></p>
+<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=3&sn=19a4c14f4cf089ecc35d598d3bb0afc9&chksm=c293ee47f5e46751df39ef429569b3b8787dc1e3acd8f7cda251802e57c4eeab5283894b5c2e%23rd">Python学习|Python中几行代码实现高颜值相关性热图及聚类热图可视化</a></p>
+<p><strong>持续更新中……</strong></p>
+]]></content>
+      <categories>
+        <category>Python与机器学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>临床预测模型|1.预测模型的应用有哪些？</title>
     <url>/year/02181194.html</url>
     <content><![CDATA[<p>在之前的很多篇推送中，我们探讨了很多关于临床预测模型的内容。接下来，我们将结合统计大神Ewout W. Steyerberg的著作—Clinical Prediction Models, A Practical Approach to Development, Validation, and Updating，对临床预测模型的理论和实践进行系统的学习。<br>在这次的内容中，我们将系统了解预测模型在医疗领域中的应用。</p>
@@ -222,32 +347,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python与机器学习系列推文-持续更新中......</title>
-    <url>/year/022124237.html</url>
-    <content><![CDATA[<p><img src="https://pic1.zhimg.com/80/v2-c9e5695bb4812686b2897aec73d3152c_1440w.webp" alt="图源于网络"></p>
-<span id="more"></span>
-
-<p><strong>一、Python与机器学习系列推文</strong></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496722&idx=1&sn=0af1ae862fb6cfdceeb0e95e5238662b&chksm=c293ecb7f5e465a185716100e624d2b3bac11e73dff09b9deacfbde811512090b94de577bf98%23rd">Python与机器学习系列|1.Python中的向量、 矩阵和数组（一）</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496758&idx=1&sn=730ed62c8749dee4d6832fe6de8fe634&chksm=c293ec93f5e465852fbe941f25848a4c86f10f8def1d2cff50df0880bc6ab3c571da2c354501%23rd">Python与机器学习系列|1.Python中的向量、 矩阵和数组（二）</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=1&sn=7e57d234596bbb0235edd235356004b9&chksm=c293ee47f5e46751d94aae0f801de6105ccfa3683c3841f45a6137fbac78f306c01d96adbf99%23rd">Python与机器学习系列|3.Python中的数据整理</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498325&idx=2&sn=f626831b8e4ba590c5ef762f4d88a2b4&chksm=c293e2f0f5e46be6720ec414909834539ea31c4141a3263845796551ae70821496a608cc0da9%23rd">Python与机器学习系列|3.Python中的数据整理（二）</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247499968&idx=1&sn=c5e47279e71ac232986af95e3e5e4044&chksm=c293d865f5e451735547aa95fd3e2baec7309e7a0f850c42cde02bfc0195e9d4e62c609a8d94%23rd">Python与机器学习系列|4.处理数值型数据（一）</a></p>
-<p><strong>二、Python与机器学习应用实例</strong></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=4&sn=be429aafece9135f637d7eddefc5b342&chksm=c293ee47f5e46751801fb89d9893fd873d8c3831bbe02c59d991fba9f64ef711919d599b7dd5%23rd">机器学习|Python中评价不同机器学习算法预测疾病风险表现能力</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=5&sn=62c1895e8a473c734fdf6baa3ef3215e&chksm=c293ee47f5e46751b9ddb6222922d08d189ddb4e7e11bc11d3eb2a6fe5cc83f39cfe2b4db5f6%23rd">机器学习|SHAP value的另一种R可视化方式以及Python实现SHAP value可视化</a></p>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497442&idx=3&sn=19a4c14f4cf089ecc35d598d3bb0afc9&chksm=c293ee47f5e46751df39ef429569b3b8787dc1e3acd8f7cda251802e57c4eeab5283894b5c2e%23rd">Python学习|Python中几行代码实现高颜值相关性热图及聚类热图可视化</a></p>
-<p><strong>持续更新中……</strong></p>
-]]></content>
-      <categories>
-        <category>Python与机器学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>临床预测模型|预测研究中的验证问题：应该废除队列拆分？</title>
     <url>/year/022133039.html</url>
     <content><![CDATA[<p>临床预测模型的验证问题一直以来是一个大家较为关注的问题。尤其是在缺乏外部验证的情况下。在很多的临床预测模型中，队列拆分随处可见。尤其是在一些小样本研究中，也可以看到作者将数据集随机拆分为训练队列和内部验证队列。尽管是在很多已发表的SCI论文中都能看到这一现象。</p>
@@ -291,105 +390,6 @@
       </categories>
       <tags>
         <tag>临床预测模型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用的R数据可视化合集，持续更新中</title>
-    <url>/year/022141933.html</url>
-    <content><![CDATA[<ol>
-<li><h2 id="小提琴图-瀑布图-饼图-花瓣图"><a href="#小提琴图-瀑布图-饼图-花瓣图" class="headerlink" title="小提琴图+瀑布图+饼图+花瓣图"></a><strong>小提琴图+瀑布图+饼图+花瓣图</strong></h2></li>
-</ol>
-<p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247495119&idx=1&sn=af53ced3f4af9013423892b7eb474af4&chksm=c293f56af5e47c7c8b0a7a07989c0d9e6a63f19b02a91735a2f20024bd67b3f22b548ac2c43b%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（三）</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-1b7c49abfd507ae7e33c75beae369bdd_1440w.webp" alt="花瓣图"></p>
-<span id="more"></span>
-
-<h2 id="2-tnse降维图"><a href="#2-tnse降维图" class="headerlink" title="2. tnse降维图"></a><strong>2. tnse降维图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494623&idx=1&sn=4baf4e3dec655e876f7649bd66d64536&chksm=c293f37af5e47a6cb25896b2b6ed6bf111355816cfb25fb2bd7c24b2c0c4c1dc84db9c54c358%23rd">R学习|探索高维数据的奥秘——Rtsne在R中的应用</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-bd1d4f0dcd30f6ae74bc32b2765fc08b_1440w.webp" alt="tnse降维图+文本注释"></p>
-<h2 id="3-堆叠百分比面积图"><a href="#3-堆叠百分比面积图" class="headerlink" title="3. 堆叠百分比面积图"></a><strong>3. 堆叠百分比面积图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494528&idx=1&sn=6cf4de63d1fbf6e33264d658fc35f3e7&chksm=c293f325f5e47a33d359684d0f8fbd65e2f089e9b09fbb846684f849162af02e6aba2fb70796%23rd">R学习|堆叠百分比面积图了解一下！</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-b718ce47425425936498b077791bf59b_1440w.webp" alt="堆叠百分比面积图"></p>
-<h2 id="4-ggplot2版热图-分面堆叠百分比条形图"><a href="#4-ggplot2版热图-分面堆叠百分比条形图" class="headerlink" title="4. ggplot2版热图+分面堆叠百分比条形图"></a><strong>4. ggplot2版热图+分面堆叠百分比条形图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494434&idx=1&sn=362b5b7bc8d5436f51241639c4dd5937&chksm=c293f387f5e47a914de78e2a901979bab2c73b8375d85be1a012be8292909b45e92290635747%23rd">R学习|感受ggplot2的魅力—Nature Cancer可视化结果复现（二）</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-4987b5d436e8b8a9703f2969e08c4429_1440w.webp" alt="ggplot2版热图"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-e1b6ca95a085122029ca506aaa0f83b2_1440w.webp" alt="分面堆叠百分比条形图"></p>
-<h2 id="5-ggplot2分面相关性散点图-分面热图-分面火山图-分面富集分析条形图"><a href="#5-ggplot2分面相关性散点图-分面热图-分面火山图-分面富集分析条形图" class="headerlink" title="5. ggplot2分面相关性散点图+分面热图+分面火山图+分面富集分析条形图"></a><strong>5. ggplot2分面相关性散点图+分面热图+分面火山图+分面富集分析条形图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494421&idx=1&sn=d62bf5222e541ff2e092f1fa9838ba75&chksm=c293f3b0f5e47aa6fd8d8e6947813fab1a866443d5f25c9b9f45d101b98c75c623fa0639f1d6%23rd">R学习|感受ggplot2的魅力—Nature Cancer可视化结果复现</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-dd68db55f5dd6ccad45fcbbc4fde4056_1440w.webp" alt="分面相关性散点图"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-3cc90a7f0371d84eec82746b0578ea89_1440w.webp" alt="分面热图"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-1fea6f3ac747d19066ec7b25a205b3ed_1440w.webp" alt="分面火山图"></p>
-<p><img src="https://pic4.zhimg.com/80/v2-4e34cb401f68a992ad1d5775b06054c3_1440w.webp" alt="分面富集分析条形图"></p>
-<h2 id="6-ggplot2绘制单多因素回归分析森林图"><a href="#6-ggplot2绘制单多因素回归分析森林图" class="headerlink" title="6. ggplot2绘制单多因素回归分析森林图"></a><strong>6. ggplot2绘制单多因素回归分析森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494284&idx=1&sn=ffe71d34970f2e859d3aa29d7f40a0b8&chksm=c293f229f5e47b3f89eb050a009b79896eed287c8a8d3b2c35a985e2197f9d1910b793e6bf5d%23rd">R学习|一键单多因素回归分析及ggplot2可视化回归分析结果</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-f224490a249221c40612fc5dc8152612_1440w.webp" alt="单多因素回归分析森林图"></p>
-<h2 id="7-重抽样ROC曲线"><a href="#7-重抽样ROC曲线" class="headerlink" title="7. 重抽样ROC曲线"></a><strong>7. 重抽样ROC曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247494046&idx=1&sn=01ad2b3f61a5be70649b6bb7946ab90b&chksm=c293f13bf5e4782d346ef3f9cb4a2d4bddece3ad48f89590180cd3732a2620527407521e1376%23rd">勘误—R学习|Bootstrap重抽样ROC曲线了解一下</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-9f3c14db958069f8cac2cca2a9b4a3f2_1440w.webp" alt="重抽样ROC曲线"></p>
-<h2 id="8-个性化lasso回归变量筛选图"><a href="#8-个性化lasso回归变量筛选图" class="headerlink" title="8. 个性化lasso回归变量筛选图"></a><strong>8. 个性化lasso回归变量筛选图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247491445&idx=1&sn=bd0035076a2ef6f61cb85e78ae567067&chksm=c29007d0f5e78ec6ff1c26b889931365dd7d69a832689b7512134c1989ca86672bb147994941%23rd">R学习|你还在用传统的LASSO回归可视化嘛？</a></p>
-<p><img src="https://pic1.zhimg.com/80/v2-aa65d0bfe39ba48fa05bdf70e7d91694_1440w.webp" alt="个性化lasso回归变量筛选图"></p>
-<h2 id="9-生存数据SHAP值可视化"><a href="#9-生存数据SHAP值可视化" class="headerlink" title="9. 生存数据SHAP值可视化"></a><strong>9. 生存数据SHAP值可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247491347&idx=1&sn=6aecf67d3135006adb150078f63b9cc5&chksm=c29007b6f5e78ea0517b1fdff2ae734a3fc4a5e404783dff6e50352c838cdbfdf3c51aa2c8eb%23rd">生存数据机器学习算法模型的SHAP值可视化</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-47fa2d1e2f158d9138e2f0ef217173bf_1440w.webp" alt="生存数据SHAP值可视化"></p>
-<h2 id="10-forestploter绘制meta分析发表级森林图"><a href="#10-forestploter绘制meta分析发表级森林图" class="headerlink" title="10. forestploter绘制meta分析发表级森林图"></a><strong>10. forestploter绘制meta分析发表级森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247490794&idx=1&sn=0866f0b73c04a59a9b01b2736cc2776a&chksm=c290044ff5e78d595e2d131cc72abd4d20944320808999c295f5f0b9f372c8b6b81f46264c70%23rd">R学习|使用forestploter绘制meta分析发表级森林图</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-c2481d1cbc33427c74c60998fe964e3e_1440w.webp" alt="forestploter绘制meta分析发表级森林图"></p>
-<h2 id="11-ggplot2绘制韦恩图"><a href="#11-ggplot2绘制韦恩图" class="headerlink" title="11. ggplot2绘制韦恩图"></a><strong>11. ggplot2绘制韦恩图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247490371&idx=1&sn=dbcba10044f0a1a5e34e8429cb843c0e&chksm=c29003e6f5e78af03a0727eb70f0d471a2eaa58820c8532d31900b1483c306682b254a247d62%23rd">R学习|ggvenn—基于ggplot2绘制韦恩图</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-62855aacf6d17d09dd73312639fcf517_1440w.webp" alt="ggplot2绘制韦恩图"></p>
-<h2 id="12-基于ggplot2绘制生存曲线"><a href="#12-基于ggplot2绘制生存曲线" class="headerlink" title="12. 基于ggplot2绘制生存曲线"></a><strong>12. 基于ggplot2绘制生存曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247489451&idx=1&sn=f5df9c3c06e24ccb1a4db6ecce819f55&chksm=c2900f0ef5e78618aba0fbf8a48b616d3ea3b7e5c6aa77cd4f5a96eca4693b20dcd8b7e7faf4%23rd">R学习|ggsurvfit—基于ggplot2更加灵活地绘制生存曲线</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-9d8f825d6c33fe3cb30366013967f152_1440w.webp" alt="基于ggplot2绘制生存曲线"></p>
-<h2 id="13-协变量校正生存曲线"><a href="#13-协变量校正生存曲线" class="headerlink" title="13. 协变量校正生存曲线"></a><strong>13. 协变量校正生存曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247488654&idx=1&sn=3239e8980488df04bc9b8126e6713e9c&chksm=c2900c2bf5e7853d8d85e48f57d06a1c0f010d5157897f6fdec61c040c71fbc342341b99f869%23rd">R学习|基于R实现协变量校正生存曲线绘制</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-4b0f0d2962509dc6214cb8b67902826f_1440w.webp" alt="ggadjustedcurves函数控制协变量后ECOG的KM曲线-条件法"></p>
-<h2 id="14-ggplot2绘制点图-条形图-组图"><a href="#14-ggplot2绘制点图-条形图-组图" class="headerlink" title="14. ggplot2绘制点图+条形图+组图"></a><strong>14. ggplot2绘制点图+条形图+组图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247488208&idx=1&sn=140763f039e0dd15a57ee93b5418701b&chksm=c2900a75f5e78363cb25f10685a986d6075aef4b1f69cddbbb03f3ab4976a23a21ee9f4f7b4f%23rd">R学习|eLife图表复现——复习ggplot2基础绘图函数</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-58453f766dc6def030eabd5411b29585_1440w.webp" alt="ggplot2绘制点图+条形图+组图"></p>
-<h2 id="15-ggplot2绘制散点饼图"><a href="#15-ggplot2绘制散点饼图" class="headerlink" title="15. ggplot2绘制散点饼图"></a><strong>15. ggplot2绘制散点饼图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487815&idx=1&sn=fb04b9306596700c80d482b35dacc449&chksm=c29009e2f5e780f46c43f6d8380f7d0237e509f18ba5e9f2e5dc2ceac25be63c5a6d9c679f8e%23rd">R学习|基于ggplot2绘制散点饼图展示数据比例</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-e6e1906f70a9be024c4e4105ee1ec6ea_1440w.webp" alt="使用ggplot2和scatterpie包绘制饼图来展示数据构成比"></p>
-<h2 id="16-ggplot2绘制桑基图"><a href="#16-ggplot2绘制桑基图" class="headerlink" title="16. ggplot2绘制桑基图"></a><strong>16. ggplot2绘制桑基图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487770&idx=1&sn=96adf8391cf915eca560bd8c5daae698&chksm=c29009bff5e780a97e0939fe428a8aee63d5ce0778d7fa4800ddd3a001d3f529e183f235722e%23rd">R学习|ggalluvial—基于ggplot2的桑基图可视化</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-7110ac7b231fbfb028a7b07c5e53ec4f_1440w.webp" alt="基于ggplot2的桑基图可视化"></p>
-<h2 id="17-ggplot2绘制云雨图"><a href="#17-ggplot2绘制云雨图" class="headerlink" title="17. ggplot2绘制云雨图"></a><strong>17. ggplot2绘制云雨图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487709&idx=1&sn=d3f6ffd176b6e1c7773bc9faa5607a09&chksm=c2900878f5e7816e53ba75dc2bc11cf22e8328f14e9db9222e58c259b9316be54d8f4fb0091c%23rd">R学习|ggrain—基于ggplot2的云雨图可视化</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-24a7089be3e1cad5436735b468f6bf42_1440w.webp" alt="ggrain实现云雨图可视化"></p>
-<h2 id="18-ggplot2绘制临床相关性热图"><a href="#18-ggplot2绘制临床相关性热图" class="headerlink" title="18. ggplot2绘制临床相关性热图"></a><strong>18. ggplot2绘制临床相关性热图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487685&idx=1&sn=fe03a6a68d36ebc995449149bab0dd19&chksm=c2900860f5e78176a1531f28f40603eeec0d7aae690b6436f6803297ad23de8fb887be306a3b%23rd">R学习|临床相关性热图展示病例临床特征与结局事件之间的相关性</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-95c6da1a83305dcfb1909592fdedd253_1440w.webp" alt="使用ComplexHeatmap包制作一个简单的临床相关性热图展示每个临床病例对应的临床特征与结局事件之间的关系"></p>
-<h2 id="19-堆叠百分比柱状图"><a href="#19-堆叠百分比柱状图" class="headerlink" title="19. 堆叠百分比柱状图"></a><strong>19. 堆叠百分比柱状图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487562&idx=1&sn=0d927f829362803b265be75835d4a3bb&chksm=c29008eff5e781f9c4f331e65c8d28577af1e36f46f4e5512df4e2a5ef7df456cb34c3a83477%23rd">R学习|堆叠百分比柱状图可视化</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-3420991b80638a401e1183596340210d_1440w.webp" alt="堆叠百分比柱状图可视化"></p>
-<h2 id="20-重复测量数据可视化"><a href="#20-重复测量数据可视化" class="headerlink" title="20. 重复测量数据可视化"></a><strong>20. 重复测量数据可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487649&idx=1&sn=7aacd7c27fe937f0e3916e5f9bae87fb&chksm=c2900804f5e7811263fda18e5d034ec5f647c070668a86ecfdf50d51c37e6c3a613db1004f4a%23rd">R学习|科研数据可视化-重复测量数据可视化</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-ef04c9957b24e0cc3dafc3d091a2e9c5_1440w.webp" alt="重复测量数据可视化"></p>
-<h2 id="21-临床研究游泳图"><a href="#21-临床研究游泳图" class="headerlink" title="21. 临床研究游泳图"></a><strong>21. 临床研究游泳图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487555&idx=1&sn=bd76a790ef77e6e6ad2c19ada8d320ac&chksm=c29008e6f5e781f08f0e4ef892b4e483a477586dcc2fd231240a3fcc8716e70df7de606c6653%23rd">R学习|R可视化临床试验中常用的游泳图（swimmer plot）</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-03c32ebf38f84957c533aa40cd213fa6_1440w.webp" alt="临床试验中常用的游泳图（swimmer plot）"></p>
-<h2 id="22-ggplot2可视化回归分析结果"><a href="#22-ggplot2可视化回归分析结果" class="headerlink" title="22. ggplot2可视化回归分析结果"></a><strong>22. ggplot2可视化回归分析结果</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247487408&idx=1&sn=a59f59b1b2b4c56f7987e9e7ea075b40&chksm=c2901715f5e79e036cb5656e0ec115145c728e813887aa8e5864719c66d2556f4ac19169e09b%23rd">R学习|使用ggplot2将你的回归分析结果可视化</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-26e97b1b9939356e8f4773405dc57152_1440w.webp" alt="回归分析结果可视化"></p>
-<h2 id="23-ggplot2可视化相关性矩阵"><a href="#23-ggplot2可视化相关性矩阵" class="headerlink" title="23. ggplot2可视化相关性矩阵"></a><strong>23. ggplot2可视化相关性矩阵</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247486651&idx=1&sn=9bf4d80ea6480ec5b8a62fb659bc9e2d&chksm=c290141ef5e79d08e88e51f011276458de880dd4e2105bade438fa5602119d15cfd0febcdf01%23rd">R学习|ggcorrplot：使用ggplot2可视化相关性矩阵</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-02b24ccf8a1196557316c0993ff15996_1440w.webp" alt="ggcorrplot可视化相关性矩阵"></p>
-<h2 id="24-ggplot2绘制个性化森林图"><a href="#24-ggplot2绘制个性化森林图" class="headerlink" title="24. ggplot2绘制个性化森林图"></a><strong>24. ggplot2绘制个性化森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247486396&idx=1&sn=8bdbe1c82c65c0663951dcfd409e711f&chksm=c2901319f5e79a0f26179ff3520e40dfdb0f59af928db3005f57c5c6502cdde5978b55c37d06%23rd">R学习|个性化森林图可视化</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-7173a367eff2644ced17f578768f68d5_1440w.webp" alt="个性化森林图可视化"></p>
-<h2 id="25-复杂热图-富集分析-小提琴图"><a href="#25-复杂热图-富集分析-小提琴图" class="headerlink" title="25. 复杂热图+富集分析+小提琴图"></a><strong>25. 复杂热图+富集分析+小提琴图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485867&idx=1&sn=921b0ca97c1ed3fb2e6cdca1661de1fe&chksm=c290110ef5e798189d5dcf0888d238b7389d9bcc00141d24fc8fd90f3c414fd1e77ceca9dac8%23rd">跟着cmgh学数据可视化|4.复杂热图+富集分析+小提琴图可视化</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-cf7546e51c1bf39cbc54635ddd411ca5_1440w.webp" alt="复杂热图+富集分析+小提琴图可视化"></p>
-<h2 id="26-配对箱线图-PCA-小提琴图"><a href="#26-配对箱线图-PCA-小提琴图" class="headerlink" title="26. 配对箱线图+PCA+小提琴图"></a><strong>26. 配对箱线图+PCA+小提琴图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485501&idx=1&sn=8647c2a970131c0b7c830b7ada576f79&chksm=c2901098f5e7998e42db2fb23ba4c1d0eeb6fde6d38592992fe91dc7ea7fd458672d93744fb8%23rd">跟着cmgh学数据可视化|3.配对箱线图+PCA+小提琴图+组图</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-bd62f3ec588d096543534d1a42af9473_1440w.webp" alt="配对箱线图+PCA+小提琴图+组图"></p>
-<h2 id="27-带统计显著性箱式图-分面箱式图"><a href="#27-带统计显著性箱式图-分面箱式图" class="headerlink" title="27. 带统计显著性箱式图+分面箱式图"></a><strong>27. 带统计显著性箱式图+分面箱式图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485430&idx=1&sn=96c37a8efa720aa20b39d72fb9db5734&chksm=c2901f53f5e796457c17edd14c79301b20c3f377371d9e2885bd86024eedcec1ba2c35dcef2c%23rd">跟着NC学数据可视化|2.带统计显著性检验箱式图及分面箱式图可视化</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-caa186400292643700d91707aa337c26_1440w.webp" alt="带统计显著性检验箱式图及分面箱式图可视化"></p>
-<h2 id="28-堆叠柱状图-箱式图-森林图"><a href="#28-堆叠柱状图-箱式图-森林图" class="headerlink" title="28. 堆叠柱状图+箱式图+森林图"></a><strong>28. 堆叠柱状图+箱式图+森林图</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485345&idx=1&sn=08beb51ea7c63b212672a04591ded654&chksm=c2901f04f5e796120d32d49a492348987af47789072d10cd7ca96c4df7ad2f1fc179b355c424%23rd">跟着CNS学数据可视化系列|1.NC堆叠柱状图、箱式图和森林图可视化</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-2bcf81539e66e1fb2e493e96a3125519_1440w.webp" alt="NC堆叠柱状图、箱式图和森林图可视化"></p>
-<h2 id="29-SHAP值可视化"><a href="#29-SHAP值可视化" class="headerlink" title="29. SHAP值可视化"></a><strong>29. SHAP值可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247485227&idx=1&sn=89cf1619a1da68d8dca512830fff12f7&chksm=c2901f8ef5e7969841d8dab89b8fbc905452603d8f1f5cdd4e7ca2bdb5eccf50900758747451%23rd">R与机器学习系列|shapviz——机器学习“黑箱模型”SHAP值可视化</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-870195466a0219da5e457146b3a7f15a_1440w.webp" alt="机器学习“黑箱模型”SHAP值可视化"></p>
-<h2 id="30-层级聚类热图和柱状图可视化"><a href="#30-层级聚类热图和柱状图可视化" class="headerlink" title="30.层级聚类热图和柱状图可视化"></a><strong>30.层级聚类热图和柱状图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496301&idx=1&sn=488b6d25cf04614e135d9e7807db5dbc&chksm=c293eac8f5e463de202d06477b8fa6878f6a8c50b84f42876bc2484aaa52959214b57e700ce2%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（四）</a></p>
-<p><img src="https://pic4.zhimg.com/80/v2-4757beb1ccd13a49f25707859d47ec6b_1440w.webp" alt="层级聚类热图"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-52ec0917416c076ab8bee57d36b4ba7a_1440w.webp" alt="柱状图"></p>
-<h2 id="31-配对箱线图可视化"><a href="#31-配对箱线图可视化" class="headerlink" title="31.配对箱线图可视化"></a><strong>31.配对箱线图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247496838&idx=1&sn=1b000a3112bba53e6b1cb622883fa601&chksm=c293ec23f5e4653537266e1af21562b774c76d69cf45927a84cdbd6e805752109482e7e327c1%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature可视化（五）</a></p>
-<p><img src="https://pic1.zhimg.com/80/v2-28ba522d1759d896d723d52a161276a8_1440w.webp" alt="配对箱线图"></p>
-<h2 id="32-火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化"><a href="#32-火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化" class="headerlink" title="32.火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化"></a><strong>32.火山图、热图、分面蜂群图、堆叠柱状图、相关性散点图和生存曲线可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497244&idx=1&sn=afe3b78c688d8c0306164b65a2ef633b&chksm=c293eeb9f5e467af92df669fd6a5e4c6b196505818cb1ea07442f025eebbfe1148ad5a4cebc3%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature Cancer可视化（六）</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-886f993550899a3e627a218874e60f7d_1440w.webp" alt="img"></p>
-<h2 id="33-肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化"><a href="#33-肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化" class="headerlink" title="33.肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化"></a><strong>33.肿瘤生长曲线、带误差棒柱状图、热图、相关性散点图、配对散点图可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497403&idx=1&sn=dcb31b871e49e19fffdd9e39b0827473&chksm=c293ee1ef5e467087a3c16d993c74ff3a32efa6ff9565dad0977964e29a05577e8712a787826%23rd">R学习|感受ggplot2的魅力—ggplot2复现Nature Cancer可视化（七）</a></p>
-<p><img src="https://pic2.zhimg.com/80/v2-3c683ec56425e640eeef28c371683091_1440w.webp" alt="img"></p>
-<h2 id="34-时间依赖C指数的计算及可视化"><a href="#34-时间依赖C指数的计算及可视化" class="headerlink" title="34.时间依赖C指数的计算及可视化"></a><strong>34.时间依赖C指数的计算及可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497491&idx=1&sn=ff0bb46fdf2339a9954834bbc1becd4c&chksm=c293efb6f5e466a01ed0df1ba03abea2c7fe0e151e5b573c86c2f6f9dc9e9fe728ba29b3c45f%23rd">临床预测模型|时间依赖C指数的计算及可视化</a></p>
-<p><img src="https://pic3.zhimg.com/80/v2-789c2c58ba8940e8838798473d27fc0e_1440w.webp" alt="时间依赖C指数"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-3968002f633f8cdd4769533646927dca_1440w.webp" alt="时间依赖C指数"></p>
-<h2 id="35-临床预测模型校正曲线可视化"><a href="#35-临床预测模型校正曲线可视化" class="headerlink" title="35.临床预测模型校正曲线可视化"></a><strong>35.临床预测模型校正曲线可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497529&idx=1&sn=480d8dab4bc20ade902139c1d38c1068&chksm=c293ef9cf5e4668adcd3e4e93c1c4c82f3676acc21724d7f2b977f66398013eb0ed33c39099b%23rd">临床预测模型|是你想要的临床预测模型校正曲线嘛？</a></p>
-<p><img src="https://pic1.zhimg.com/80/v2-e65aba2943516e74026f8ea7b1c32ec4_1440w.webp" alt="临床预测模型校正曲线可视化"></p>
-<h2 id="36-生存数据临床预测模型建立和评价"><a href="#36-生存数据临床预测模型建立和评价" class="headerlink" title="36.生存数据临床预测模型建立和评价"></a><strong>36.生存数据临床预测模型建立和评价</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247497820&idx=1&sn=09dc1ed6bb991191bc40b525c465f7d4&chksm=c293e0f9f5e469eff2ec567c6aa6060960931123bf7697cfb7c93ee7dd6972d3d03b8ce0cf7e%23rd">临床预测模型|生存数据临床预测模型的快速建立和评价+美化</a></p>
-<h2 id="37-特定时间点重抽样ROC曲线"><a href="#37-特定时间点重抽样ROC曲线" class="headerlink" title="37. 特定时间点重抽样ROC曲线"></a><strong>37. 特定时间点重抽样ROC曲线</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498218&idx=1&sn=9e85772ae00c15804442ec20cdda9586&chksm=c293e14ff5e46859c13ecea67a911374e3f6664ccdcef04fcac3f75476af6cfa0293c2f0d93a%23rd">临床预测模型|生存模型特定时间点的重抽样ROC曲线绘制</a></p>
-<h2 id="38-结局事件预测概率可视化"><a href="#38-结局事件预测概率可视化" class="headerlink" title="38.结局事件预测概率可视化"></a><strong>38.结局事件预测概率可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247498227&idx=1&sn=872ab004f592b6a4f8977b7be6f028d0&chksm=c293e156f5e468409fe555fcf03150dccb21ad848b907d045cb34e9c23c7537f3d4dff3b4e37%23rd">临床预测模型|如何可视化临床预测模型中每个个体结局事件的预测概率？</a></p>
-<h2 id="39-金字塔图AE可视化"><a href="#39-金字塔图AE可视化" class="headerlink" title="39.金字塔图AE可视化"></a><strong>39.金字塔图AE可视化</strong></h2><p><a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s?__biz=MzkzNzMxNjgxMA==&mid=2247499931&idx=1&sn=ae78e99a3f3c4f330d12e553d494c5bb&chksm=c293d83ef5e451282879e77411625a198de295888f4ff44716e6ea240c9fedfa1a5c5c969704%23rd">R学习|基于ggplot2，使用金字塔图可视化临床研究中的不良事件（AE）</a></p>
-<p><strong>更多科研数据可视化，持续更新中……</strong></p>
-]]></content>
-      <categories>
-        <category>数据可视化</category>
-      </categories>
-      <tags>
-        <tag>R</tag>
-        <tag>ggplot2</tag>
-        <tag>数据可视化</tag>
       </tags>
   </entry>
 </search>
