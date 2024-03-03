@@ -6,7 +6,7 @@
   <link href="https://tdlpblog.cn/atom.xml" rel="self"/>
   
   <link href="https://tdlpblog.cn/"/>
-  <updated>2024-02-21T13:44:06.802Z</updated>
+  <updated>2024-03-03T07:01:11.928Z</updated>
   <id>https://tdlpblog.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python与机器学习系列</title>
+    <link href="https://tdlpblog.cn/year/030346613.html"/>
+    <id>https://tdlpblog.cn/year/030346613.html</id>
+    <published>2024-03-03T06:28:20.000Z</published>
+    <updated>2024-03-03T07:01:11.928Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://mmbiz.qpic.cn/mmbiz_jpg/EKDJKJSia78RSJGOeib1BxdksxdREz8V8SEsKwxtn9XNxdotEB0hsvR54N0JJYSbkU3P1LZdhrZxicP2ffDp94jgg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Python与机器学习" scheme="https://tdlpblog.cn/categories/Python%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Python" scheme="https://tdlpblog.cn/tags/Python/"/>
+    
+    <category term="机器学习" scheme="https://tdlpblog.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>临床预测模型|预测研究中的验证问题：应该废除队列拆分？</title>
